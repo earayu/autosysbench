@@ -90,8 +90,8 @@ sysbench_vtgate_then_mysql_175_threads_loop() {
   done
 }
 
-sysbench_run_and_rest() {
-  local podDefinition=$1
-  create_and_wait_for_pod $podDefinition
-  rest 60
+
+function sysbench_run_and_rest() {
+  create_and_wait_for_pod $1
+  # rest 60
 }

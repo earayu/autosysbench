@@ -1,555 +1,128 @@
-sysbench_vtgate_4_8_16_25_50_75_100_125_150_175=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:4 8 16 25 50 75 100 125 150 175,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_4 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:4"
+}
 
-sysbench_mysql_4_8_16_25_50_75_100_125_150_175=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:4 8 16 25 50 75 100 125 150 175,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_8 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:8"
+}
 
-sysbench_vtgate_150=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:150,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_16 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:16"
+}
 
-sysbench_vtgate_125=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:125,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_25 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:25"
+}
 
-sysbench_vtgate_100=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:100,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_50 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:50"
+}
 
-sysbench_vtgate_75=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:75,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_75 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:75"
+}
 
-sysbench_vtgate_50=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:50,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_100 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:100"
+}
 
-sysbench_vtgate_25=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:25,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_125 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:125"
+}
 
-sysbench_vtgate_16=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:16,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_150 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:150"
+}
 
-sysbench_vtgate_8=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:8,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_mysql_times_60_threads_175 {
+  generate_mysql_pod_yaml_by_times_threads "times:60" "threads:175"
+}
 
-sysbench_vtgate_4=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:4,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
 
-sysbench_mysql_4=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:4,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
 
-sysbench_mysql_8=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:8,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
 
-sysbench_mysql_16=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:16,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
 
-sysbench_mysql_25=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:25,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
 
-sysbench_mysql_50=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:50,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
 
-sysbench_mysql_75=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:75,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
 
-sysbench_mysql_100=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:100,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
 
-sysbench_mysql_125=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:125,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_vtgate_times_60_threads_4 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:4"
+}
 
-sysbench_mysql_150=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:150,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_vtgate_times_60_threads_8 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:8"
+}
 
-sysbench_vtgate_175=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:175,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+function sysbench_vtgate_times_60_threads_16 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:16"
+}
 
-sysbench_mysql_175=$(cat <<EOF
+function sysbench_vtgate_times_60_threads_25 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:25"
+}
+
+function sysbench_vtgate_times_60_threads_50 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:50"
+}
+
+function sysbench_vtgate_times_60_threads_75 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:75"
+}
+
+function sysbench_vtgate_times_60_threads_100 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:100"
+}
+
+function sysbench_vtgate_times_60_threads_125 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:125"
+}
+
+function sysbench_vtgate_times_60_threads_150 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:150"
+}
+
+function sysbench_vtgate_times_60_threads_175 {
+  generate_vtgate_pod_yaml_by_times_threads "times:60" "threads:175"
+}
+
+
+
+
+
+#################################################################################################################################################
+
+
+function generate_mysql_pod_yaml_by_times_threads {
+  # times:60
+  local times=$1
+  # threads:4 8 16 25 50 75 100 125 150 175
+  local threads=$2
+  generate_pod_yaml "mysql" "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,$times,type:oltp_read_write_pct,$threads,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
+}
+
+function generate_vtgate_pod_yaml_by_times_threads {
+   # times:60
+  local times=$1
+  # threads:4 8 16 25 50 75 100 125 150 175
+  local threads=$2
+  generate_pod_yaml "vtgate" "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,$times,type:oltp_read_write_pct,$threads,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
+}
+
+
+#################################################################################################################################################
+
+
+function generate_pod_yaml {
+  local type=$1
+  local sysbench_value=$2
+
+  cat <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
   namespace: default
-  generateName: test-mysql-run-
+  generateName: test-$type-run-
 spec:
   containers:
     - name: test-sysbench
@@ -560,7 +133,7 @@ spec:
         - name: FLAG
           value: "0"
         - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:175,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
+          value: "$sysbench_value"
   restartPolicy: Never
   tolerations:
     - key: kb-vtgate
@@ -568,4 +141,6 @@ spec:
       value: "true"
       effect: NoSchedule
 EOF
-)
+
+}
+
