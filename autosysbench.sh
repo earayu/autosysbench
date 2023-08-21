@@ -54,116 +54,14 @@ rest(){
   date
 }
 
+#######################################################################################################################################
 
-
-sysbench_vtgate_4_8_16_25_50_75_100_125_150_175=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:4 8 16 25 50 75 100 125 150 175,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
-
-sysbench_mysql_4_8_16_25_50_75_100_125_150_175=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:4 8 16 25 50 75 100 125 150 175,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
-
-sysbench_vtgate_175=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-vtgate-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.251.240,user:root,port:15306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:175,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
-
-sysbench_mysql_175=$(cat <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  namespace: default
-  generateName: test-mysql-run-
-spec:
-  containers:
-    - name: test-sysbench
-      image: registry.cn-hangzhou.aliyuncs.com/apecloud/customsuites:latest
-      env:
-        - name: TYPE
-          value: "2"
-        - name: FLAG
-          value: "0"
-        - name: CONFIGS
-          value: "mode:run,driver:mysql,host:172.16.134.200,user:root,password:sf2gxx9r,port:3306,db:mydb,size:2000000,tables:50,times:60,type:oltp_read_write_pct,threads:175,others:--read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable"
-  restartPolicy: Never
-  tolerations:
-    - key: kb-vtgate
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
-EOF
-)
+source sysbenchdefinition.sh
 
 #######################################################################################################################################
 
 
-sysbench_mysql_then_vtgate() {
+sysbench_mysql_then_vtgate_175_threads_loop() {
   local iterations=$1
 
   for ((i=1; i<=iterations; i++)); do
@@ -176,7 +74,7 @@ sysbench_mysql_then_vtgate() {
   done
 }
 
-sysbench_vtgate_then_mysql() {
+sysbench_vtgate_then_mysql_175_threads_loop() {
   local iterations=$1
 
   for ((i=1; i<=iterations; i++)); do
@@ -189,21 +87,48 @@ sysbench_vtgate_then_mysql() {
   done
 }
 
+sysbench_run() {
+  local podDefinition=$1
+  create_and_wait_for_pod $podDefinition
+  rest 60
+}
 
 
 #######################################################################################################################################
 
-test_result_path=/Users/earayu/Desktop/tmp/sysbench9
-mkdir $test_result_path
-deleteSysbenchPods
+main() {
+  test_result_path="$(pwd)/data/sysbench1"
+  mkdir $test_result_path
+  deleteSysbenchPods
+
+  # sysbench_vtgate_then_mysql_175_threads_loop 5
+
+  sysbench_run sysbench_vtgate_4
+  sysbench_run sysbench_vtgate_8
+  sysbench_run sysbench_vtgate_16
+  sysbench_run sysbench_vtgate_25
+  sysbench_run sysbench_vtgate_50
+  sysbench_run sysbench_vtgate_75
+  sysbench_run sysbench_vtgate_100
+  sysbench_run sysbench_vtgate_125
+  sysbench_run sysbench_vtgate_150
+  sysbench_run sysbench_vtgate_175
+
+  sysbench_run sysbench_mysql_4
+  sysbench_run sysbench_mysql_8
+  sysbench_run sysbench_mysql_16
+  sysbench_run sysbench_mysql_25
+  sysbench_run sysbench_mysql_50
+  sysbench_run sysbench_mysql_75
+  sysbench_run sysbench_mysql_100
+  sysbench_run sysbench_mysql_125
+  sysbench_run sysbench_mysql_150
+  sysbench_run sysbench_mysql_175
 
 
-sysbench_vtgate_then_mysql 5
-
-
-getPodLogs $test_result_path
-transform /Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser $test_result_path
-
+  getPodLogs $test_result_path
+  transform /Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser $test_result_path
+}
 
 
 
