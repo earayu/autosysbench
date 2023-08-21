@@ -21,8 +21,25 @@ def main():
     # run sysbench
     autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_4())
     autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_8())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_16())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_25())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_50())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_75())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_100())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_125())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_150())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_times_60_threads_175())
+
     autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_4())
     autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_8())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_16())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_25())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_50())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_75())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_100())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_125())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_150())
+    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_times_60_threads_175())
 
     # process sysbench result
     autosysbench.get_pod_logs(test_result_path)

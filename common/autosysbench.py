@@ -50,7 +50,7 @@ def rest(seconds):
 
 def sysbench_run_and_rest(script):
     create_and_wait_for_pod(script)
-    # rest(60)
+    rest(60)
 
 
 import pandas as pd
