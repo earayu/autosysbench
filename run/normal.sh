@@ -1,14 +1,14 @@
 current_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 source "$current_path/../common/autosysbench.sh"
-
+current_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 
 
 main() {
-  test_result_path="$current_path/../data/sysbench1"
+  test_result_path="$current_path/../data/debug"
   mkdir $test_result_path
   deleteSysbenchPods
 
-  # sysbench_vtgate_then_mysql_175_threads_loop 5
+  # sysbench_vtgate_then_mysql_175_threads_loop 1
 
   # sysbench_run_and_rest sysbench_vtgate_4
   # sysbench_run_and_rest sysbench_vtgate_8
@@ -32,9 +32,10 @@ main() {
   # sysbench_run_and_rest sysbench_mysql_150
   # sysbench_run_and_rest sysbench_mysql_175
 
-
   getPodLogs $test_result_path
   transform /Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser $test_result_path
+
+  python3 "$current_path/../plot/main.py"
 }
 
 main
