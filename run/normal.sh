@@ -1,12 +1,10 @@
-# source "$($(pwd)/../autosysbench.sh)"
-
 current_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 source "$current_path/../common/autosysbench.sh"
 
 
 
 main() {
-  test_result_path="$(pwd)/data/sysbench1"
+  test_result_path="$current_path/../data/sysbench1"
   mkdir $test_result_path
   deleteSysbenchPods
 
@@ -39,4 +37,4 @@ main() {
   transform /Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser $test_result_path
 }
 
-# main
+main

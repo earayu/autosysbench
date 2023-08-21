@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+current_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+source "$current_path/sysbenchdefinition.sh"
+
+#######################################################################################################################################
+
+
+
 create_and_wait_for_pod() {
   local script="$1"
   echo "Creating pod using script:"
@@ -55,12 +63,6 @@ rest(){
 }
 
 #######################################################################################################################################
-
-current_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
-source "$current_path/sysbenchdefinition.sh"
-
-#######################################################################################################################################
-
 
 sysbench_mysql_then_vtgate_175_threads_loop() {
   local iterations=$1
