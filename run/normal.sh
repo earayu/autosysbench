@@ -1,10 +1,10 @@
-current_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
-source "$current_path/../common/autosysbench.sh"
-current_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+normal_sh_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+source "$normal_sh_path/../common/autosysbench.sh"
+normal_sh_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 
 
 main() {
-  test_result_path="$current_path/../data/debug"
+  test_result_path="$normal_sh_path/../data/debug"
   mkdir $test_result_path
   deleteSysbenchPods
 
@@ -35,7 +35,7 @@ main() {
   getPodLogs $test_result_path
   transform /Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser $test_result_path
 
-  python3 "$current_path/../plot/main.py"
+  python3 "$normal_sh_path/../plot/main.py"
 }
 
 main

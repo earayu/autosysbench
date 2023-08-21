@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-current_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
-source "$current_path/sysbenchdefinition.sh"
+auto_sysbench_sh_path=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+source "$auto_sysbench_sh_path/sysbenchdefinition.sh"
 
 #######################################################################################################################################
 
