@@ -40,6 +40,8 @@ def transform(sysparser_binary, path):
             subprocess.run(f'{sysparser_binary} --file="{file}" > {path}/{filename}.csv', shell=True)
             print(f"Processing completed: {file}")
 
+
+
 def rest(seconds):
     print(time.ctime())
     time.sleep(seconds)
@@ -49,3 +51,24 @@ def rest(seconds):
 def sysbench_run_and_rest(script):
     create_and_wait_for_pod(script)
     # rest(60)
+
+
+import pandas as pd
+from pathlib import Path
+
+def aggregate_result(path):
+    mysql_data = []
+    vtgate_data = []
+
+    for file in Path(path).glob("test-*.csv"):
+        df = pd.read_csv(file, sep="\t")
+        if "mysql" in file.name:
+            mysql_data.append(df)
+        elif "vtgate" in file.name:
+            vtgate_data.append(df)
+
+    mysql_data = pd.concat(mysql_data).sort_values(by="Threads")
+    vtgate_data = pd.concat(vtgate_data).sort_values(by="Threads")
+
+    mysql_data.to_csv(os.path.join(path, "mysql.csv"), index=False, sep="\t")
+    vtgate_data.to_csv(os.path.join(path, "vtgate.csv"), index=False, sep="\t")
