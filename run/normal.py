@@ -51,8 +51,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # main()
-    test_result_path = os.path.join(current_path, '../data/debug')
-    os.makedirs(test_result_path, exist_ok=True)
-    autosysbench.aggregate_result(test_result_path)
-    draw_figure.draw_figure_from_aggregation_result(test_result_path, "Debug Plot")
+    main()
