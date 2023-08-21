@@ -4,7 +4,7 @@ import os
 import figure_util
 
 # path to the directory
-path = '../data/read_write_split_disable'
+path = '../data/read_write_split_enable'
 
 # dictionary to store filenames and their full paths
 config_list = []
