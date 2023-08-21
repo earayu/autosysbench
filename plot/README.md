@@ -1,13 +1,4 @@
-# autosysbench
-
-```
-git clone https://github.com/earayu/autosysbench
-cd autosysbench
-
-./autosysbench.sh
-```
-
-# plot
+# sysplot
 
 ```python
 
@@ -17,6 +8,6 @@ python3 main.py
 
 ```
 
-## Docs
+# Docs
 * Fundamentals: https://plotly.com/python/plotly-fundamentals/
 * Examples: https://plotly.com/python/basic-charts/
