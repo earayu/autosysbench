@@ -3,26 +3,31 @@ import subprocess
 import time
 import glob
 
-auto_sysbench_sh_path = os.path.dirname(os.path.realpath(__file__))
-exec(open(f"{auto_sysbench_sh_path}/sysbenchdefinition.sh").read())
-
 def create_and_wait_for_pod(script):
-    print("Creating pod using script:")
-    print(script)
-    pod_name = subprocess.check_output(f'echo "{script}" | kubectl create -f -', shell=True).decode().split()[0]
-    print(f"Waiting for pod {pod_name} to complete...")
-    subprocess.run(f'kubectl wait --for=jsonpath="{{.status.phase}}"=Succeeded --timeout=15m {pod_name}', shell=True)
-    print(f"Pod {pod_name} completed.")
+    createPodCmd = f"""
+kubectl create -f - <<EOF
+{script}
+EOF
+"""
+    print(createPodCmd)
+    pod_name = subprocess.check_output(createPodCmd, shell=True).decode().strip().split()[0]
+    print("pod name: " + pod_name)
+    
+    waitPodCmd = f'kubectl wait --for=jsonpath="{{.status.phase}}"=Succeeded --timeout=15m {pod_name}'
+    print(waitPodCmd)
+    waitPodResult = subprocess.check_output(waitPodCmd, shell=True)
+    print(waitPodResult)
 
-def getPodLogs(destPath):
-    pods = subprocess.check_output('kubectl get pods --no-headers', shell=True).decode().split('\n')
-    pods = [pod.split()[0] for pod in pods if pod.startswith('test-')]
 
-    for podName in pods:
-        subprocess.run(f'kubectl logs {podName} > {destPath}/{podName}.txt', shell=True)
+def get_pod_logs(dest_path):
+    pods = subprocess.check_output("kubectl get pods --no-headers | awk '/^test-/ {print $1}'", shell=True).decode().splitlines()
+    for pod_name in pods:
+        with open(f"{dest_path}/{pod_name}.txt", "w") as log_file:
+            log_file.write(subprocess.check_output(f"kubectl logs {pod_name}", shell=True).decode())
 
-def deleteSysbenchPods():
-    subprocess.run('kubectl delete pod --field-selector=status.phase==Succeeded', shell=True)
+
+def delete_sysbench_pods():
+    subprocess.run("kubectl delete pod --field-selector=status.phase==Succeeded", shell=True)
 
 def transform(sysparser_binary, path):
     if not os.path.isdir(path):
@@ -40,21 +45,6 @@ def rest(seconds):
     time.sleep(seconds)
     print(time.ctime())
 
-def sysbench_mysql_then_vtgate_175_threads_loop(iterations):
-    for i in range(iterations):
-        create_and_wait_for_pod(sysbench_mysql_175)
-        rest(60)
-        create_and_wait_for_pod(sysbench_vtgate_175)
-        if i != iterations - 1:
-            rest(60)
-
-def sysbench_vtgate_then_mysql_175_threads_loop(iterations):
-    for i in range(iterations):
-        create_and_wait_for_pod(sysbench_vtgate_175)
-        rest(60)
-        create_and_wait_for_pod(sysbench_mysql_175)
-        if i != iterations - 1:
-            rest(60)
 
 def sysbench_run_and_rest(script):
     create_and_wait_for_pod(script)

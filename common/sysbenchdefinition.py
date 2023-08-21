@@ -78,4 +78,3 @@ def sysbench_vtgate_times_60_threads_150():
     return generate_vtgate_pod_yaml_by_times_threads("times:60", "threads:150")
 def sysbench_vtgate_times_60_threads_175():
     return generate_vtgate_pod_yaml_by_times_threads("times:60", "threads:175")
-
