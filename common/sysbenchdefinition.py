@@ -9,13 +9,13 @@ def getCurrentTime():
     formatted_time = current_time.strftime("time-%Y-%m-%d-%H-%M")
     return formatted_time
 
-def generate_pod_yaml(type, read_write_pct_name_suffix, threads_name_suffix, sysbench_value):
+def generate_pod_yaml(type, read_write_pct_name_suffix, threads_name_suffix, sysbench_value, currentTime=getCurrentTime()):
     return f"""
 apiVersion: v1
 kind: Pod
 metadata:
   namespace: default
-  name: test-{type}-run-{read_write_pct_name_suffix}-{threads_name_suffix}-{getCurrentTime()}
+  name: test-{type}-run-{read_write_pct_name_suffix}-{threads_name_suffix}-{currentTime}
 spec:
   containers:
     - name: test-sysbench
