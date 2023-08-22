@@ -27,6 +27,8 @@ def get_all_pod_logs(dest_path):
             log_file.write(subprocess.check_output(f"kubectl logs {pod_name}", shell=True).decode())
 
 def get_pod_log(dest_path, pod_name):
+    if pod_name.startswith("pod/"):
+        pod_name = pod_name.replace("pod/", "")
     with open(f"{dest_path}/{pod_name}.txt", "w") as log_file:
         log_file.write(subprocess.check_output(f"kubectl logs {pod_name}", shell=True).decode())
 
