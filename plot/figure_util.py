@@ -2,6 +2,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import plotly.express as px
 import pandas as pd
+import plotly.io as pio
+
 
 # marker_color='rgb(55, 83, 109)'
 # marker_color='rgb(26, 118, 255)'
@@ -81,3 +83,4 @@ def Draw(figureTitle, configs):
 
     # display
     fig.show()
+    # pio.write_image(fig, 'figure.png')

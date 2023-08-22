@@ -47,8 +47,11 @@ def run_sysbench_tests(testname):
 
     # run sysbench workload
     shuffled_workload = random.sample(workload, len(workload))
+    count = 0
     for work in shuffled_workload:
         autosysbench.sysbench_run_and_rest(work)
+        count += 1
+        print("complete workload (%s/%s)" % (count, len(shuffled_workload)))
 
     # process sysbench result
     autosysbench.get_pod_logs(test_result_path)
