@@ -17,13 +17,18 @@ EOF
     print(waitPodCmd)
     waitPodResult = subprocess.check_output(waitPodCmd, shell=True)
     print(waitPodResult)
+    return pod_name
 
 
-def get_pod_logs(dest_path):
+def get_all_pod_logs(dest_path):
     pods = subprocess.check_output("kubectl get pods --no-headers | awk '/^test-/ {print $1}'", shell=True).decode().splitlines()
     for pod_name in pods:
         with open(f"{dest_path}/{pod_name}.txt", "w") as log_file:
             log_file.write(subprocess.check_output(f"kubectl logs {pod_name}", shell=True).decode())
+
+def get_pod_log(dest_path, pod_name):
+    with open(f"{dest_path}/{pod_name}.txt", "w") as log_file:
+        log_file.write(subprocess.check_output(f"kubectl logs {pod_name}", shell=True).decode())
 
 
 def delete_sysbench_pods():
@@ -47,10 +52,16 @@ def rest(seconds):
     time.sleep(seconds)
     print("current time: " + time.ctime())
 
+IsFirstWorkload = True
+
 
 def sysbench_run_and_rest(script):
-    create_and_wait_for_pod(script)
-    rest(60)
+    global IsFirstWorkload
+    if not IsFirstWorkload:
+        rest(60)
+        IsFirstWorkload = False
+    pod_name = create_and_wait_for_pod(script)
+    return pod_name
 
 
 import pandas as pd

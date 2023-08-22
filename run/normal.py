@@ -49,12 +49,12 @@ def run_sysbench_tests(testname):
     random.shuffle(workload)
     count = 0
     for work in workload:
-        autosysbench.sysbench_run_and_rest(work)
+        pod_name = autosysbench.sysbench_run_and_rest(work)
+        autosysbench.get_pod_log(test_result_path, pod_name)
         count += 1
-        print("complete workload (%s/%s)" % (count, len(workload)))
+        print("===== complete workload (%s/%s) =====" % (count, len(workload)))
 
     # process sysbench result
-    autosysbench.get_pod_logs(test_result_path)
     autosysbench.transform('/Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser', test_result_path)
 
     # plot
