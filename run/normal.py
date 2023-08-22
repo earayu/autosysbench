@@ -11,10 +11,10 @@ import draw_figure
 
 
 
-
-def main():
+# read_write_split_disable2
+def run_sysbench_tests(testname):
     # prepare
-    test_result_path = os.path.join(current_path, '../data/debug')
+    test_result_path = os.path.join(current_path, '../data/' + testname)
     os.makedirs(test_result_path, exist_ok=True)
     autosysbench.delete_sysbench_pods()
 
@@ -47,8 +47,18 @@ def main():
 
     # plot
     autosysbench.aggregate_result(test_result_path)
-    draw_figure.draw_figure_from_aggregation_result(test_result_path, "Debug Plot")
+    draw_figure.draw_figure_from_aggregation_result(test_result_path, testname)
 
 
 if __name__ == "__main__":
-    main()
+    run_sysbench_tests('read_write_split_disable3')
+    run_sysbench_tests('read_write_split_disable4')
+    run_sysbench_tests('read_write_split_disable5')
+    run_sysbench_tests('read_write_split_disable6')
+    run_sysbench_tests('read_write_split_disable7')
+    run_sysbench_tests('read_write_split_disable8')
+    run_sysbench_tests('read_write_split_disable9')
+    run_sysbench_tests('read_write_split_disable10')
+    run_sysbench_tests('read_write_split_disable11')
+    run_sysbench_tests('read_write_split_disable12')
+    run_sysbench_tests('read_write_split_disable13')
