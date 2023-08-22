@@ -24,7 +24,8 @@ def read_file_and_draw(path, figureTitle):
 
     figure_util.Draw(
         figureTitle=figureTitle,
-        configs=config_list
+        configs=config_list,
+        path=path
     )
 
 def draw_figure_from_aggregation_result(path, figureTitle):
@@ -49,5 +50,6 @@ def draw_figure_from_aggregation_result(path, figureTitle):
 
     figure_util.Draw(
         figureTitle=figureTitle,
-        configs=config_list
+        configs=config_list,
+        path=path
     )

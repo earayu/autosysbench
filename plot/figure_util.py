@@ -1,3 +1,5 @@
+import os.path
+
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import plotly.express as px
@@ -44,7 +46,7 @@ def AddQpsLatencyTrace(fig, df, barName, lineName):
     # )
 
 
-def Draw(figureTitle, configs):
+def Draw(figureTitle, configs, path):
     # Create figure with secondary y-axis
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
@@ -82,5 +84,5 @@ def Draw(figureTitle, configs):
         AddQpsLatencyTrace(fig, df, barName, lineName)
 
     # display
-    fig.show()
-    # pio.write_image(fig, 'figure.png')
+    # fig.show()
+    pio.write_image(fig, os.path.join(path, 'figure.png'))

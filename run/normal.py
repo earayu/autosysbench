@@ -22,27 +22,27 @@ def run_sysbench_tests(testname):
     # prepare sysbench workload
     workload = []
 
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=4, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=8, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=16, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=25, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=50, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=75, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=100, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=125, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=150, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=175, read_pct=80))
-
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=4, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=8, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=16, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=25, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=50, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=75, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=100, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=125, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=150, read_pct=80))
-    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=175, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=4, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=8, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=16, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=25, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=50, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=75, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=100, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=125, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=150, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=175, read_pct=80))
+    #
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=4, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=8, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=16, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=25, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=50, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=75, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=100, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=125, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=150, read_pct=80))
+    # workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=175, read_pct=80))
 
 
     # run sysbench workload
