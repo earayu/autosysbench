@@ -9,13 +9,13 @@ kubectl create -f - <<EOF
 {script}
 EOF
 """
-    print(createPodCmd)
+    # print(createPodCmd)
     pod_name = subprocess.check_output(createPodCmd, shell=True).decode().strip().split()[0]
-    print("pod name: " + pod_name)
+    # print("pod name: " + pod_name)
     
     waitPodCmd = f'kubectl wait --for=jsonpath="{{.status.phase}}"=Succeeded --timeout=15m {pod_name}'
     print(waitPodCmd)
-    waitPodResult = subprocess.check_output(waitPodCmd, shell=True)
+    waitPodResult = subprocess.check_output(waitPodCmd, shell=True).decode().strip()
     print(waitPodResult)
     return pod_name
 

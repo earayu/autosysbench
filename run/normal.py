@@ -32,6 +32,7 @@ def read_pct_20_workload():
     workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=100, read_pct=20))
     workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=125, read_pct=20))
     workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=150, read_pct=20))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=175, read_pct=20))
     workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=200, read_pct=20))
     return workload
 
