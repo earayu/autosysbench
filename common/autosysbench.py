@@ -43,9 +43,9 @@ def transform(sysparser_binary, path):
 
 
 def rest(seconds):
-    print(time.ctime())
+    print("current time: " + time.ctime())
     time.sleep(seconds)
-    print(time.ctime())
+    print("current time: " + time.ctime())
 
 
 def sysbench_run_and_rest(script):

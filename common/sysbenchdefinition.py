@@ -1,4 +1,13 @@
 import os
+from datetime import datetime
+
+current_time = datetime.now()
+formatted_time = current_time.strftime("%Y-%m-%d")
+
+def getCurrentTime():
+    current_time = datetime.now()
+    formatted_time = current_time.strftime("time-%Y-%m-%d-%H-%M")
+    return formatted_time
 
 def generate_pod_yaml(type, read_write_pct_name_suffix, threads_name_suffix, sysbench_value):
     return f"""
@@ -6,7 +15,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   namespace: default
-  generateName: test-{type}-run-{read_write_pct_name_suffix}-{threads_name_suffix}
+  name: test-{type}-run-{read_write_pct_name_suffix}-{threads_name_suffix}-{getCurrentTime()}
 spec:
   containers:
     - name: test-sysbench
@@ -46,3 +55,4 @@ def sysbench_vtgate_yaml(times, threads, read_pct):
 
 #################################################################################
 
+print(getCurrentTime())

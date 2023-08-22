@@ -1,6 +1,7 @@
 import sys
 import os
-import subprocess
+import random
+
 
 current_path = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_path + '/../common')
@@ -18,28 +19,36 @@ def run_sysbench_tests(testname):
     os.makedirs(test_result_path, exist_ok=True)
     autosysbench.delete_sysbench_pods()
 
-    # run sysbench
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=4, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=8, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=16, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=25, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=50, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=75, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=100, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=125, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=150, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=175, read_pct=20))
+    # prepare sysbench workload
+    workload = []
 
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=4, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=8, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=16, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=25, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=50, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=75, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=100, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=125, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=150, read_pct=20))
-    autosysbench.sysbench_run_and_rest(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=175, read_pct=20))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=4, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=8, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=16, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=25, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=50, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=75, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=100, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=125, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=150, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=60, threads=175, read_pct=80))
+
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=4, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=8, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=16, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=25, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=50, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=75, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=100, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=125, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=150, read_pct=80))
+    workload.append(sysbenchdefinition.sysbench_vtgate_yaml(times=60, threads=175, read_pct=80))
+
+
+    # run sysbench workload
+    shuffled_workload = random.sample(workload, len(workload))
+    for work in shuffled_workload:
+        autosysbench.sysbench_run_and_rest(work)
 
     # process sysbench result
     autosysbench.get_pod_logs(test_result_path)
@@ -51,14 +60,10 @@ def run_sysbench_tests(testname):
 
 
 if __name__ == "__main__":
-    run_sysbench_tests('read_write_split_disable3')
-    run_sysbench_tests('read_write_split_disable4')
-    run_sysbench_tests('read_write_split_disable5')
-    run_sysbench_tests('read_write_split_disable6')
     run_sysbench_tests('read_write_split_disable7')
-    run_sysbench_tests('read_write_split_disable8')
-    run_sysbench_tests('read_write_split_disable9')
-    run_sysbench_tests('read_write_split_disable10')
-    run_sysbench_tests('read_write_split_disable11')
-    run_sysbench_tests('read_write_split_disable12')
-    run_sysbench_tests('read_write_split_disable13')
+    # run_sysbench_tests('read_write_split_disable8')
+    # run_sysbench_tests('read_write_split_disable9')
+    # run_sysbench_tests('read_write_split_disable10')
+    # run_sysbench_tests('read_write_split_disable11')
+    # run_sysbench_tests('read_write_split_disable12')
+    # run_sysbench_tests('read_write_split_disable13')
