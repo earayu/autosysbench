@@ -62,8 +62,9 @@ def create_minotor_process(pod_data_path, run_time: int):
             data_dict[key].append([timestamp, pod_name, container_name, cpu, memory])
         return data_dict
 
+    time.sleep(30)
     print("--------------- begin monitor ---------------")
-    end_time = time.time() + run_time
+    end_time = time.time() + run_time-30
     try:
         while time.time() < end_time:
             timestamp, lines = fetch_data()
