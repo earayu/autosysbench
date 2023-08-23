@@ -1,0 +1,104 @@
+run sysbench
+check mysql database exists
+mysql host 172.16.134.200 connect success!
+database mydb exists
+/usr/bin/sysbench
+cd ./sysbench/src/lua;sysbench --db-driver=mysql --mysql-host=172.16.134.200 --mysql-port=3306 --mysql-user=root --mysql-password=sf2gxx9r --mysql-db=mydb --table_size=2000000 --tables=50 --time=60 --threads=225 --events=0 --percentile=99 --read-percent=80 --write-percent=20 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable --report-interval=1 oltp_read_write_pct run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 225
+Report intermediate results every 1 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+[ 1s ] thds: 225 tps: 0.00 qps: 18382.69 (r/w/o: 17966.26/416.43/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 2s ] thds: 225 tps: 111.06 qps: 9999.75 (r/w/o: 6214.58/3785.18/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 3s ] thds: 225 tps: 114.00 qps: 14444.93 (r/w/o: 11797.94/2646.99/0.00) lat (ms,99%): 2778.39 err/s: 0.00 reconn/s: 0.00
+[ 4s ] thds: 225 tps: 171.00 qps: 14892.04 (r/w/o: 12603.03/2289.01/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 5s ] thds: 225 tps: 89.00 qps: 9878.08 (r/w/o: 6610.05/3268.03/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 6s ] thds: 225 tps: 126.00 qps: 11653.95 (r/w/o: 10475.96/1178.00/0.00) lat (ms,99%): 2539.17 err/s: 0.00 reconn/s: 0.00
+[ 7s ] thds: 225 tps: 87.00 qps: 10687.02 (r/w/o: 7777.02/2910.01/0.00) lat (ms,99%): 3040.14 err/s: 0.00 reconn/s: 0.00
+[ 8s ] thds: 225 tps: 141.00 qps: 12640.06 (r/w/o: 10853.05/1787.01/0.00) lat (ms,99%): 2778.39 err/s: 0.00 reconn/s: 0.00
+[ 9s ] thds: 225 tps: 102.00 qps: 11558.99 (r/w/o: 8729.99/2829.00/0.00) lat (ms,99%): 2985.89 err/s: 0.00 reconn/s: 0.00
+[ 10s ] thds: 225 tps: 126.00 qps: 11238.96 (r/w/o: 9345.97/1892.99/0.00) lat (ms,99%): 2585.31 err/s: 0.00 reconn/s: 0.00
+[ 11s ] thds: 225 tps: 80.00 qps: 8456.00 (r/w/o: 6415.00/2041.00/0.00) lat (ms,99%): 3208.88 err/s: 0.00 reconn/s: 0.00
+[ 12s ] thds: 225 tps: 114.00 qps: 11476.91 (r/w/o: 9459.92/2016.98/0.00) lat (ms,99%): 3267.19 err/s: 0.00 reconn/s: 0.00
+[ 13s ] thds: 225 tps: 119.00 qps: 11617.05 (r/w/o: 9085.04/2532.01/0.00) lat (ms,99%): 3386.99 err/s: 0.00 reconn/s: 0.00
+[ 14s ] thds: 225 tps: 144.00 qps: 13864.89 (r/w/o: 11333.91/2530.98/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 15s ] thds: 225 tps: 95.00 qps: 11019.99 (r/w/o: 8715.99/2304.00/0.00) lat (ms,99%): 2585.31 err/s: 0.00 reconn/s: 0.00
+[ 16s ] thds: 225 tps: 132.00 qps: 12089.13 (r/w/o: 9690.10/2399.03/0.00) lat (ms,99%): 2585.31 err/s: 0.00 reconn/s: 0.00
+[ 17s ] thds: 225 tps: 119.00 qps: 11862.02 (r/w/o: 9441.01/2421.00/0.00) lat (ms,99%): 2778.39 err/s: 0.00 reconn/s: 0.00
+[ 18s ] thds: 225 tps: 111.00 qps: 11560.04 (r/w/o: 9290.03/2270.01/0.00) lat (ms,99%): 2585.31 err/s: 0.00 reconn/s: 0.00
+[ 19s ] thds: 225 tps: 103.00 qps: 10778.97 (r/w/o: 8619.98/2158.99/0.00) lat (ms,99%): 2880.27 err/s: 0.00 reconn/s: 0.00
+[ 20s ] thds: 225 tps: 115.00 qps: 11521.97 (r/w/o: 9258.98/2262.99/0.00) lat (ms,99%): 3040.14 err/s: 0.00 reconn/s: 0.00
+[ 21s ] thds: 225 tps: 116.00 qps: 11023.01 (r/w/o: 8892.01/2131.00/0.00) lat (ms,99%): 2985.89 err/s: 0.00 reconn/s: 0.00
+[ 22s ] thds: 225 tps: 131.00 qps: 12913.99 (r/w/o: 10135.00/2779.00/0.00) lat (ms,99%): 2778.39 err/s: 0.00 reconn/s: 0.00
+[ 23s ] thds: 225 tps: 103.00 qps: 10706.92 (r/w/o: 8633.94/2072.99/0.00) lat (ms,99%): 3095.38 err/s: 0.00 reconn/s: 0.00
+[ 24s ] thds: 225 tps: 113.00 qps: 10915.09 (r/w/o: 8751.07/2164.02/0.00) lat (ms,99%): 3208.88 err/s: 0.00 reconn/s: 0.00
+[ 25s ] thds: 225 tps: 129.00 qps: 12990.98 (r/w/o: 10523.98/2467.00/0.00) lat (ms,99%): 3386.99 err/s: 0.00 reconn/s: 0.00
+[ 26s ] thds: 225 tps: 112.00 qps: 11115.01 (r/w/o: 8736.01/2379.00/0.00) lat (ms,99%): 2985.89 err/s: 0.00 reconn/s: 0.00
+[ 27s ] thds: 225 tps: 116.00 qps: 11943.99 (r/w/o: 9656.99/2287.00/0.00) lat (ms,99%): 2632.28 err/s: 0.00 reconn/s: 0.00
+[ 28s ] thds: 225 tps: 131.00 qps: 12305.09 (r/w/o: 9685.07/2620.02/0.00) lat (ms,99%): 2632.28 err/s: 0.00 reconn/s: 0.00
+[ 29s ] thds: 225 tps: 102.00 qps: 10772.92 (r/w/o: 8584.94/2187.98/0.00) lat (ms,99%): 2585.31 err/s: 0.00 reconn/s: 0.00
+[ 30s ] thds: 225 tps: 137.00 qps: 13527.05 (r/w/o: 11148.04/2379.01/0.00) lat (ms,99%): 2680.11 err/s: 0.00 reconn/s: 0.00
+[ 31s ] thds: 225 tps: 101.00 qps: 10636.96 (r/w/o: 8263.97/2372.99/0.00) lat (ms,99%): 2728.81 err/s: 0.00 reconn/s: 0.00
+[ 32s ] thds: 225 tps: 137.00 qps: 13095.87 (r/w/o: 10593.90/2501.98/0.00) lat (ms,99%): 2680.11 err/s: 0.00 reconn/s: 0.00
+[ 33s ] thds: 225 tps: 98.00 qps: 10055.14 (r/w/o: 7750.11/2305.03/0.00) lat (ms,99%): 2680.11 err/s: 0.00 reconn/s: 0.00
+[ 34s ] thds: 225 tps: 135.00 qps: 13348.91 (r/w/o: 11075.92/2272.98/0.00) lat (ms,99%): 2932.60 err/s: 0.00 reconn/s: 0.00
+[ 35s ] thds: 225 tps: 112.00 qps: 11022.03 (r/w/o: 8529.02/2493.01/0.00) lat (ms,99%): 2778.39 err/s: 0.00 reconn/s: 0.00
+[ 36s ] thds: 225 tps: 134.00 qps: 13679.02 (r/w/o: 11219.02/2460.00/0.00) lat (ms,99%): 2985.89 err/s: 0.00 reconn/s: 0.00
+[ 37s ] thds: 225 tps: 124.00 qps: 12323.98 (r/w/o: 9631.99/2692.00/0.00) lat (ms,99%): 2778.39 err/s: 0.00 reconn/s: 0.00
+[ 38s ] thds: 225 tps: 122.00 qps: 12270.09 (r/w/o: 9797.07/2473.02/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 39s ] thds: 225 tps: 112.00 qps: 10640.95 (r/w/o: 8504.96/2135.99/0.00) lat (ms,99%): 2493.86 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 225 tps: 116.00 qps: 12685.00 (r/w/o: 10314.00/2371.00/0.00) lat (ms,99%): 3386.99 err/s: 0.00 reconn/s: 0.00
+[ 41s ] thds: 225 tps: 138.00 qps: 12827.97 (r/w/o: 10160.98/2666.99/0.00) lat (ms,99%): 3151.62 err/s: 0.00 reconn/s: 0.00
+[ 42s ] thds: 225 tps: 123.00 qps: 12719.98 (r/w/o: 10254.99/2465.00/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 43s ] thds: 225 tps: 115.00 qps: 11764.04 (r/w/o: 9226.03/2538.01/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 44s ] thds: 225 tps: 131.00 qps: 12500.98 (r/w/o: 10088.99/2412.00/0.00) lat (ms,99%): 2493.86 err/s: 0.00 reconn/s: 0.00
+[ 45s ] thds: 225 tps: 119.00 qps: 12614.86 (r/w/o: 10258.89/2355.97/0.00) lat (ms,99%): 2449.36 err/s: 0.00 reconn/s: 0.00
+[ 46s ] thds: 225 tps: 109.00 qps: 10602.13 (r/w/o: 8246.10/2356.03/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 47s ] thds: 225 tps: 119.00 qps: 11769.93 (r/w/o: 9607.94/2161.99/0.00) lat (ms,99%): 2728.81 err/s: 0.00 reconn/s: 0.00
+[ 48s ] thds: 225 tps: 102.00 qps: 10692.12 (r/w/o: 8488.10/2204.03/0.00) lat (ms,99%): 3326.55 err/s: 0.00 reconn/s: 0.00
+[ 49s ] thds: 225 tps: 132.00 qps: 12620.90 (r/w/o: 10101.92/2518.98/0.00) lat (ms,99%): 4128.91 err/s: 0.00 reconn/s: 0.00
+[ 50s ] thds: 225 tps: 109.00 qps: 10616.00 (r/w/o: 8415.00/2201.00/0.00) lat (ms,99%): 3574.99 err/s: 0.00 reconn/s: 0.00
+[ 51s ] thds: 225 tps: 127.00 qps: 12920.03 (r/w/o: 10526.02/2394.00/0.00) lat (ms,99%): 2880.27 err/s: 0.00 reconn/s: 0.00
+[ 52s ] thds: 225 tps: 108.00 qps: 11212.01 (r/w/o: 8761.00/2451.00/0.00) lat (ms,99%): 2632.28 err/s: 0.00 reconn/s: 0.00
+[ 53s ] thds: 225 tps: 144.00 qps: 13583.90 (r/w/o: 10954.92/2628.98/0.00) lat (ms,99%): 2585.31 err/s: 0.00 reconn/s: 0.00
+[ 54s ] thds: 225 tps: 108.00 qps: 11664.07 (r/w/o: 9127.05/2537.01/0.00) lat (ms,99%): 2449.36 err/s: 0.00 reconn/s: 0.00
+[ 55s ] thds: 225 tps: 134.00 qps: 13202.98 (r/w/o: 10854.98/2348.00/0.00) lat (ms,99%): 2493.86 err/s: 0.00 reconn/s: 0.00
+[ 56s ] thds: 225 tps: 109.00 qps: 11033.00 (r/w/o: 8555.00/2478.00/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 57s ] thds: 225 tps: 135.00 qps: 13572.04 (r/w/o: 11149.03/2423.01/0.00) lat (ms,99%): 2680.11 err/s: 0.00 reconn/s: 0.00
+[ 58s ] thds: 225 tps: 115.00 qps: 11208.04 (r/w/o: 8761.03/2447.01/0.00) lat (ms,99%): 2493.86 err/s: 0.00 reconn/s: 0.00
+[ 59s ] thds: 225 tps: 120.00 qps: 12059.78 (r/w/o: 9755.82/2303.96/0.00) lat (ms,99%): 2880.27 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 225 tps: 129.00 qps: 12435.19 (r/w/o: 9916.15/2519.04/0.00) lat (ms,99%): 2632.28 err/s: 0.00 reconn/s: 0.00
+SQL statistics:
+    queries performed:
+        read:                            578480
+        write:                           144620
+        other:                           0
+        total:                           723100
+    transactions:                        7231   (119.46 per sec.)
+    queries:                             723100 (11946.45 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    total time:                          60.5274s
+    total number of events:              7231
+
+Latency (ms):
+         min:                                  523.79
+         avg:                                 1877.98
+         max:                                 4125.07
+         99th percentile:                     2985.89
+         sum:                             13579684.42
+
+Threads fairness:
+    events (avg/stddev):           32.1378/1.07
+    execution time (avg/stddev):   60.3542/0.14
+

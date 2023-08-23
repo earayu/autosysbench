@@ -61,7 +61,7 @@ def sysbench_run_and_rest(script):
     global IsFirstWorkload
     if not IsFirstWorkload:
         rest(60)
-        IsFirstWorkload = False
+    IsFirstWorkload = False
     pod_name = create_and_wait_for_pod(script)
     return pod_name
 
