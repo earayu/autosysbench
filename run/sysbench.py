@@ -59,8 +59,7 @@ def run_sysbench_tests(testname, workload, shuffle=False, enable_monitor=True):
               ((len(workload) - count) * (pod_run_time + RestSeconds)))
 
     # process sysbench result
-    autosysbench.transform_qps_latency_result(ParserBinPath,
-                                              test_result_path)
+    autosysbench.transform_qps_latency_result(ParserBinPath, test_result_path)
 
     # plot
     autosysbench.aggregate_result(test_result_path)
