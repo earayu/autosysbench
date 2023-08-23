@@ -3,6 +3,7 @@ import os
 import subprocess
 import time
 import threading
+from config import RestSeconds
 from datetime import datetime
 
 
@@ -109,8 +110,7 @@ def delete_sysbench_pods():
     subprocess.run("kubectl delete pod --field-selector=status.phase==Succeeded", shell=True)
 
 
-def rest(seconds):
-    global RestSeconds
+def rest():
     print("current time: " + time.ctime())
     time.sleep(RestSeconds)
     print("current time: " + time.ctime())
@@ -126,7 +126,7 @@ def sysbench_run_and_rest(pod_yaml, pod_run_time, data_path, enable_monitor=True
         return
     global IsFirstWorkload
     if not IsFirstWorkload:
-        rest(60)
+        rest()
     IsFirstWorkload = False
     create_and_wait_for_pod(pod_yaml, pod_run_time, data_path, enable_monitor)
 

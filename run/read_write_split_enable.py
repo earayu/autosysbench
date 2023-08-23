@@ -1,10 +1,6 @@
 import sysbench
 
 
-def debug_workload():
-    return sysbench.generate_workload(times=1, read_pct=20, threads=[4, 8])
-
-
 def read_pct_20_workload():
     return sysbench.generate_workload(times=60, read_pct=20, threads=[4, 8, 16, 25, 50, 75, 100, 125, 150, 175, 200])
 
