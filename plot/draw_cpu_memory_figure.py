@@ -36,31 +36,35 @@ def calculate_average_usage(filename):
     return avg_cpu, avg_memory
 
 
-def sum_cpu_memory(fileStr):
+def sum_cpu_memory(dir_path):
+    # 如果只想获取文件，可以如下操作:
+    files = [f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f))]
     total_cpu = 0
     total_memory = 0
-    for item in fileStr:
-        avg_cpu, avg_memory = calculate_average_usage(item)
+    for item in files:
+        if not item.startswith("monitor"):
+            continue
+        avg_cpu, avg_memory = calculate_average_usage(os.path.join(dir_path, item))
         total_cpu = total_cpu + avg_cpu
         total_memory = total_memory + avg_memory
     return total_cpu, total_memory
 
 
-
 def sum_all_pod_data(path: str):
-    directories = [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
+    dir_path = os.path.join(path, "pod")
+    directories = [d for d in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, d))]
     mysql_data = {'Thread': [], 'cpu': [], 'memory': []}
     vtgate_data = {'Thread': [], 'cpu': [], 'memory': []}
     for directory in directories:
-        if directory.starwith("test-mysql"):
-            total_cpu, total_memory = sum_cpu_memory(directory)
+        if directory.startswith("test-mysql"):
+            total_cpu, total_memory = sum_cpu_memory(os.path.join(dir_path, directory))
             str_list = directory.split("-")
             threads = int(str_list[5])
             mysql_data['Thread'].append(threads)
             mysql_data['cpu'].append(total_cpu)
             mysql_data['memory'].append(total_memory)
-        elif directory.starwith("test-vtgate"):
-            total_cpu, total_memory = sum_cpu_memory(directory)
+        elif directory.startswith("test-vtgate"):
+            total_cpu, total_memory = sum_cpu_memory(os.path.join(dir_path, directory))
             str_list = directory.split("-")
             threads = int(str_list[5])
             vtgate_data['Thread'].append(threads)
@@ -68,5 +72,6 @@ def sum_all_pod_data(path: str):
             vtgate_data['memory'].append(total_memory)
     mysql_data_df = pd.DataFrame(mysql_data)
     vtgate_data_df = pd.DataFrame(vtgate_data)
-    mysql_data_df.to_csv(os.path.join(path,"monitor-mysql-cpu-memory.csv"))
-    vtgate_data_df.to_csv(os.path.join(path,"monitor-vtgate-cpu-memory.csv"))
+    mysql_data_df.to_csv(os.path.join(path, "monitor-mysql-cpu-memory.csv"), index=False)
+    vtgate_data_df.to_csv(os.path.join(path, "monitor-vtgate-cpu-memory.csv"), index=False)
+

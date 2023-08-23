@@ -49,13 +49,13 @@ def create_minotor_process(pod_data_path, run_time: int):
         return timestamp, lines[1:-1]
 
     def parse_data(timestamp, lines):
-        forBiddenList = ["metrics", "kb-checkrole", "config-manager", "config-manager", "etcd"]
+        monitor_containers = ["mysql", "vttablet", "etcd", "vtconsensus", "vtgate"]
         data_dict = {}
         for line in lines:
             parts = line.split()
             pod_name, container_name, cpu, memory = parts[0], parts[1], parts[2], parts[3]
-            if container_name in forBiddenList:
-                pass
+            if container_name not in monitor_containers:
+                continue
             key = f"monitor-{pod_name}-{container_name}"
             if key not in data_dict:
                 data_dict[key] = []
@@ -107,6 +107,7 @@ def get_pod_log(dest_path, pod_name):
 def delete_sysbench_pods():
     subprocess.run("kubectl delete pod --field-selector=status.phase==Succeeded", shell=True)
 
+
 def rest(seconds):
     print("current time: " + time.ctime())
     time.sleep(seconds)
@@ -115,6 +116,7 @@ def rest(seconds):
 
 IsFirstWorkload = True
 DryRun = False
+
 
 def sysbench_run_and_rest(pod_yaml, pod_run_time, data_path, enable_monitor=True):
     global DryRun
@@ -129,6 +131,7 @@ def sysbench_run_and_rest(pod_yaml, pod_run_time, data_path, enable_monitor=True
 
 import pandas as pd
 
+
 def transform_qps_latency_result(sysparser_binary, path):
     if not os.path.isdir(path):
         print("Path does not exist")
@@ -139,13 +142,15 @@ def transform_qps_latency_result(sysparser_binary, path):
             if file == "mysql_qps_latency.txt" or file == "vtgate_qps_latency.txt":
                 filepath = os.path.join(root, file)
                 filename = os.path.basename(filepath).replace('.txt', '')
-                subprocess.run(f'{sysparser_binary} --file="{filepath}" > {os.path.join(root, filename)}.csv', shell=True)
+                subprocess.run(f'{sysparser_binary} --file="{filepath}" > {os.path.join(root, filename)}.csv',
+                               shell=True)
                 print(f"Processing completed: {filepath}")
+
 
 def aggregate_result(path):
     mysql_data = []
     vtgate_data = []
-
+    path = os.path.join(path, "pod")
     for root, dirs, files in os.walk(path):
         for file in files:
             full_file_name = os.path.join(root, file)
