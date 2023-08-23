@@ -1,5 +1,5 @@
 import os
-import figure_util
+import qps_latency_figure_util
 
 def read_file_and_draw(path, figureTitle):
     # dictionary to store filenames and their full paths
@@ -22,7 +22,7 @@ def read_file_and_draw(path, figureTitle):
         
     print(file_dict)
 
-    figure_util.Draw(
+    qps_latency_figure_util.Draw(
         figureTitle=figureTitle,
         configs=config_list,
         path=path
@@ -48,7 +48,7 @@ def draw_figure_from_aggregation_result(path, figureTitle):
         
     print(file_dict)
 
-    figure_util.Draw(
+    qps_latency_figure_util.Draw(
         figureTitle=figureTitle,
         configs=config_list,
         path=path

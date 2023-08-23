@@ -8,7 +8,8 @@ sys.path.append(current_path + '/../common')
 import autosysbench
 import sysbenchdefinition
 sys.path.append(current_path + '/../plot')
-import draw_figure
+import draw_qps_latency_figure
+import draw_cpu_memory_figure
 
 def read_pct_20_workload():
     workload = []
@@ -119,18 +120,21 @@ def run_sysbench_tests(testname, workload):
     random.shuffle(workload)
     count = 0
     for work in workload:
-        pod_name = autosysbench.sysbench_run_and_rest(work)
-        autosysbench.get_pod_log(test_result_path, pod_name)
+        pod_yaml = work[0]
+        pod_run_time = work[1]
+        autosysbench.sysbench_run_and_rest(pod_yaml, pod_run_time, data_path=test_result_path)
         count += 1
         print("===== complete workload (%s/%s) =====" % (count, len(workload)))
 
+        print("===== estimate remaining time: %s seconds =====" % (len(workload) - count) * pod_run_time )
+
     # process sysbench result
-    autosysbench.transform('/Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser', test_result_path)
+    autosysbench.transform_qps_latency_result('/Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser', test_result_path)
 
     # plot
     autosysbench.aggregate_result(test_result_path)
-    draw_figure.draw_figure_from_aggregation_result(test_result_path, testname)
-
+    draw_qps_latency_figure.draw_figure_from_aggregation_result(test_result_path, testname)
+    draw_cpu_memory_figure.sum_all_pod_data(test_result_path)
 
 if __name__ == "__main__":
     for round in range(8, 9):

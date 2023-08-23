@@ -2,14 +2,12 @@ import os.path
 
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import plotly.express as px
 import pandas as pd
 import plotly.io as pio
 
 
 # marker_color='rgb(55, 83, 109)'
 # marker_color='rgb(26, 118, 255)'
-
 # template: ["plotly", "plotly_white", "plotly_dark", "ggplot2", "seaborn", "simple_white", "none"]
 
 
@@ -35,15 +33,6 @@ def AddQpsLatencyTrace(fig, df, barName, lineName):
     ),
         secondary_y=True,
     )
-
-    # fig.add_trace(go.Scatter(
-    #     x=XAxis,
-    #     y=df['PctLatency'],
-    #     mode='lines+markers',
-    #     name='PctLatency',
-    # ),
-    #     secondary_y=True,
-    # )
 
 
 def Draw(figureTitle, configs, path):
@@ -85,4 +74,5 @@ def Draw(figureTitle, configs, path):
 
     # display
     # fig.show()
-    pio.write_image(fig, os.path.join(path, 'figure.png'))
+    pio.write_image(fig, os.path.join(path, 'cpu_memory.png'))
+
