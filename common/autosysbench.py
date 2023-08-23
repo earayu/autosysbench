@@ -2,7 +2,6 @@ import csv
 import os
 import subprocess
 import time
-import glob
 import threading
 from datetime import datetime
 
@@ -17,8 +16,9 @@ EOF
     pod_data_path = os.path.join(data_path, pod_name)
     os.makedirs(pod_data_path, exist_ok=True)
 
-    t1 = threading.Thread(target=create_minotor_process(pod_data_path, pod_run_time))
-    t1.start()
+    if enable_monitor:
+        t1 = threading.Thread(target=create_minotor_process, args=(pod_data_path, pod_run_time))
+        t1.start()
 
     waitPodCmd = f'kubectl wait --for=jsonpath="{{.status.phase}}"=Succeeded --timeout=15m {pod_name}'
     print(waitPodCmd)
@@ -110,8 +110,9 @@ def delete_sysbench_pods():
 
 
 def rest(seconds):
+    global RestSeconds
     print("current time: " + time.ctime())
-    time.sleep(seconds)
+    time.sleep(RestSeconds)
     print("current time: " + time.ctime())
 
 
@@ -151,7 +152,7 @@ def transform_qps_latency_result(sysparser_binary, path):
 def aggregate_result(path):
     mysql_data = []
     vtgate_data = []
-    path = os.path.join(path, "pod")
+    # path = os.path.join(path, "pod")
     for root, dirs, files in os.walk(path):
         for file in files:
             full_file_name = os.path.join(root, file)
