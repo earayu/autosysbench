@@ -34,16 +34,18 @@ def draw_figure_from_aggregation_result(path, figureTitle):
     # iterate over all files in the directory
     for filename in os.listdir(path):
         file_dict = {}
-        if not (filename == 'mysql.csv' or filename == 'vtgate.csv'):
+        if not (filename == 'aggregated_mysql_qps_latency.csv' or filename == 'aggregated_vtgate_qps_latency.csv'):
             continue 
         # store the filename and its full path in the dictionary
         file_dict['fileName'] = os.path.join(path, filename)
-        if filename.startswith('mysql'):
+        if 'mysql' in filename:
             file_dict['barName'] = 'MySQL'
             file_dict['lineName'] = 'MySQL Latency'
-        else:
+        elif 'vtgate' in filename:
             file_dict['barName'] = 'VTGate'
             file_dict['lineName'] = 'VTGate Latency'
+        else:
+            pass
         config_list.append(file_dict)
         
     print(file_dict)
