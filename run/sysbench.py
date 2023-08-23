@@ -35,7 +35,7 @@ def generate_workload(times=100, read_pct=20, threads=[4, 8]):
     return workload
 
 
-def run_sysbench_tests(testname, workload, enable_monitor=True):
+def run_sysbench_tests(testname, workload, shuffle=False, enable_monitor=True):
     # prepare
     test_result_path = os.path.join(current_path, '..', 'data', get_current_date_for_path(),
                                     testname + '_time_' + get_current_time_for_path())
@@ -45,7 +45,8 @@ def run_sysbench_tests(testname, workload, enable_monitor=True):
     # prepare sysbench workload
 
     # run sysbench workload
-    random.shuffle(workload)
+    if shuffle:
+        random.shuffle(workload)
     count = 0
     for work in workload:
         pod_yaml = work[0]
