@@ -26,7 +26,7 @@ def get_current_time_for_path():
     return formatted_time
 
 
-def generate_workload(times=200, read_pct=20, threads=[4, 8]):
+def generate_workload(times=100, read_pct=20, threads=[4, 8]):
     workload = []
     for t in threads:
         workload.append(sysbenchdefinition.sysbench_mysql_yaml(times=times, threads=t, read_pct=read_pct))
