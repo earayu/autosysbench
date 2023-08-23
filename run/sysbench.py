@@ -8,6 +8,7 @@ sys.path.append(current_path + '/../common')
 import common.autosysbench as autosysbench
 import common.sysbenchdefinition as sysbenchdefinition
 from common.config import RestSeconds
+from common.config import ParserBinPath
 
 sys.path.append(current_path + '/../plot')
 import plot.draw_qps_latency_figure as draw_qps_latency_figure
@@ -57,10 +58,12 @@ def run_sysbench_tests(testname, workload, enable_monitor=True):
               ((len(workload) - count) * (pod_run_time + RestSeconds)))
 
     # process sysbench result
-    autosysbench.transform_qps_latency_result('/Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser',
+    autosysbench.transform_qps_latency_result(ParserBinPath,
                                               test_result_path)
 
     # plot
     autosysbench.aggregate_result(test_result_path)
     draw_qps_latency_figure.draw_figure_from_aggregation_result(test_result_path, testname)
     draw_cpu_memory_figure.sum_all_pod_data(test_result_path)
+    draw_cpu_memory_figure.draw_figure_from_aggregation_result(test_result_path, testname)
+

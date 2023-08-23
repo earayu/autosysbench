@@ -12,12 +12,12 @@ import plotly.io as pio
 
 
 def AddQpsLatencyTrace(fig, df, barName, lineName):
-    XAxis = df['Threads']
+    XAxis = df['Thread']
 
     # Draw Bar
     fig.add_trace(go.Bar(
         x=XAxis,
-        y=df['QPS'],
+        y=df['cpu'],
         name=barName,
     ),
         secondary_y=False,
@@ -26,7 +26,7 @@ def AddQpsLatencyTrace(fig, df, barName, lineName):
     # Draw Line
     fig.add_trace(go.Scatter(
         x=XAxis,
-        y=df['AvgLatency'],
+        y=df['memory'],
         mode='lines+markers',
         name=lineName,
         marker=dict(size=10),
@@ -43,8 +43,8 @@ def Draw(figureTitle, configs, path):
     fig.update_xaxes(title_text="<b>Threads</b>")
 
     # Set y-axes titles
-    fig.update_yaxes(title_text="<b>QPS</b>", secondary_y=False)
-    fig.update_yaxes(title_text="<b>Latency</b>", secondary_y=True)
+    fig.update_yaxes(title_text="<b>CPU USAGE</b>", secondary_y=False)
+    fig.update_yaxes(title_text="<b>MEM USAGE</b>", secondary_y=True)
 
     # Set figure title
     fig.update_layout(
@@ -66,8 +66,8 @@ def Draw(figureTitle, configs, path):
         lineName = conf['lineName']
 
         print("read data from:", fileName)
-        df = pd.read_csv(fileName, sep="\t")
-        df['Threads'] = df['Threads'].astype(str)
+        df = pd.read_csv(fileName, sep=",")
+        df['Thread'] = df['Thread'].astype(str)
         print(df)
 
         AddQpsLatencyTrace(fig, df, barName, lineName)
