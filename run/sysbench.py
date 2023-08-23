@@ -7,6 +7,7 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_path + '/../common')
 import common.autosysbench as autosysbench
 import common.sysbenchdefinition as sysbenchdefinition
+from common.config import RestSeconds
 
 sys.path.append(current_path + '/../plot')
 import plot.draw_qps_latency_figure as draw_qps_latency_figure
@@ -52,7 +53,8 @@ def run_sysbench_tests(testname, workload, enable_monitor=True):
                                            enable_monitor=enable_monitor)
         count += 1
         print("===== complete workload (%s/%s) =====" % (count, len(workload)))
-        print("===== estimate remaining time: %s seconds =====\n" % (len(workload) - count) * pod_run_time)
+        print("===== estimate remaining time: %s seconds =====\n" %
+              ((len(workload) - count) * (pod_run_time + RestSeconds)))
 
     # process sysbench result
     autosysbench.transform_qps_latency_result('/Users/earayu/Documents/GitHub/sysbench-output-parser/sysparser',
