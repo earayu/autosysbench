@@ -1,0 +1,13 @@
+timeStamp,POD,NAME,CPU(cores),MEMORY(bytes)
+00:18:50,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7349m,97Mi
+00:18:55,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7349m,97Mi
+00:19:00,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7461m,90Mi
+00:19:06,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7461m,90Mi
+00:19:11,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7761m,89Mi
+00:19:16,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7761m,89Mi
+00:19:22,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7761m,89Mi
+00:19:27,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7761m,89Mi
+00:19:32,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7350m,88Mi
+00:19:37,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7350m,88Mi
+00:19:43,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7727m,97Mi
+00:19:48,vt-vtgate-6c745b4fdb-fg6mf,vtgate,7727m,97Mi
