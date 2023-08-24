@@ -44,8 +44,6 @@ def run_sysbench_tests(testname, workload, shuffle=False, enable_monitor=True):
     os.makedirs(test_result_path, exist_ok=True)
     autosysbench.delete_sysbench_pods()
 
-    # prepare sysbench workload
-
     # run sysbench workload
     if shuffle:
         random.shuffle(workload)
@@ -60,11 +58,9 @@ def run_sysbench_tests(testname, workload, shuffle=False, enable_monitor=True):
         print("===== estimate remaining time: %s seconds =====\n" %
               ((len(workload) - count) * (pod_run_time + RestSeconds)))
 
-    # process sysbench result
-    autosysbench.transform_qps_latency_result(ParserBinPath, test_result_path)
-
-    # plot
-    autosysbench.aggregate_result(test_result_path)
+    # process result and plot
+    draw_qps_latency_figure.transform_qps_latency_result(ParserBinPath, test_result_path)
+    draw_qps_latency_figure.aggregate_result(test_result_path)
     draw_qps_latency_figure.draw_figure_from_aggregation_result(test_result_path, testname)
     draw_cpu_memory_figure.sum_all_pod_data(test_result_path)
     draw_cpu_memory_figure.draw_figure_from_aggregation_result(test_result_path, testname)
