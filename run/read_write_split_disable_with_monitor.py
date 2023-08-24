@@ -12,6 +12,7 @@ def read_pct_50_workload():
 def read_pct_80_workload():
     return sysbench.generate_workload(times=100, read_pct=80, threads=[4, 25, 50, 100, 200])
 
+
 def read_pct_20_workload_full():
     return sysbench.generate_workload(times=100, read_pct=20, threads=[4, 8, 16, 25, 50, 75, 100, 125, 150, 175, 200])
 
