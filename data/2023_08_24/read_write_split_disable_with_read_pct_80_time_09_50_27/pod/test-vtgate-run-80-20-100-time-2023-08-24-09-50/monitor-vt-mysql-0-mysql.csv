@@ -1,0 +1,13 @@
+timeStamp,POD,NAME,CPU(cores),MEMORY(bytes)
+10:28:40,vt-mysql-0,mysql,3286m,14117Mi
+10:28:45,vt-mysql-0,mysql,3605m,14118Mi
+10:28:50,vt-mysql-0,mysql,3605m,14118Mi
+10:28:56,vt-mysql-0,mysql,2918m,14083Mi
+10:29:01,vt-mysql-0,mysql,2918m,14083Mi
+10:29:06,vt-mysql-0,mysql,2918m,14083Mi
+10:29:12,vt-mysql-0,mysql,3489m,14083Mi
+10:29:17,vt-mysql-0,mysql,3489m,14083Mi
+10:29:22,vt-mysql-0,mysql,3489m,14083Mi
+10:29:27,vt-mysql-0,mysql,3513m,14109Mi
+10:29:33,vt-mysql-0,mysql,3513m,14109Mi
+10:29:38,vt-mysql-0,mysql,3513m,14109Mi
