@@ -72,6 +72,16 @@ def Draw(figureTitle, configs, path):
 
         AddQpsLatencyTrace(fig, df, barName, lineName)
 
+    minMemory = min(df['memory'])
+    maxMemory = max(df['memory'])
+    # 设置y轴的范围
+    fig.update_layout(
+        yaxis2=dict(
+            range=[minMemory-2000, maxMemory+2000],  # 假设您希望y轴的范围是从0到100
+            dtick=1000  # 设置y轴的刻度间隔为10
+        )
+    )
+
     # display
     # fig.show()
     pio.write_image(fig, os.path.join(path, 'cpu_memory.png'))

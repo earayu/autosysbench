@@ -1,0 +1,3 @@
+Threads	QPS	AvgLatency	PctLatency
+4	1413.89	282.78	363.18
+8	2293.82	348.41	450.77
