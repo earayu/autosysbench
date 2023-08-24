@@ -26,6 +26,8 @@ def get_current_time_for_path():
     formatted_time = current_time.strftime("%H_%M_%S")
     return formatted_time
 
+def get_data_path():
+    return os.path.join(current_path, '..', 'data')
 
 def generate_workload(times=100, read_pct=20, threads=[4, 8]):
     workload = []
