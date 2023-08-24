@@ -74,5 +74,5 @@ def Draw(figureTitle, configs, path):
 
     # display
     # fig.show()
-    pio.write_image(fig, os.path.join(path, 'qps_latency.png'))
+    pio.write_image(fig, os.path.join(path, 'qps_latency.png'), scale=2)
 
