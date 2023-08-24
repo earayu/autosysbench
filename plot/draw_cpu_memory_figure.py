@@ -59,6 +59,8 @@ def sum_all_pod_data(path: str):
     for directory in directories:
         if directory.startswith("test-mysql"):
             total_cpu, total_memory = sum_cpu_memory(os.path.join(dir_path, directory))
+            total_cpu = round(total_cpu, 2)
+            total_memory = round(total_memory, 2)
             str_list = directory.split("-")
             threads = int(str_list[5])
             mysql_data['Thread'].append(threads)
@@ -66,6 +68,8 @@ def sum_all_pod_data(path: str):
             mysql_data['memory'].append(total_memory)
         elif directory.startswith("test-vtgate"):
             total_cpu, total_memory = sum_cpu_memory(os.path.join(dir_path, directory))
+            total_cpu = round(total_cpu, 2)
+            total_memory = round(total_memory, 2)
             str_list = directory.split("-")
             threads = int(str_list[5])
             vtgate_data['Thread'].append(threads)
@@ -98,14 +102,15 @@ def draw_figure_from_aggregation_result(path, figureTitle):
             file_dict['barName'] = 'MySQL CPU USAGE'
             file_dict['lineName'] = 'MySQL MEMORY USAGE'
         elif 'vtgate' in filename:
-            file_dict['barName'] = 'VTGate CPU USAGE'
-            file_dict['lineName'] = 'VTGate MEMORY USAGE'
+            file_dict['barName'] = 'WeSQL-Scale CPU USAGE'
+            file_dict['lineName'] = 'WeSQL-Scale MEMORY USAGE'
         else:
             pass
         config_list.append(file_dict)
 
-    print(file_dict)
 
+    config_list = sorted(config_list, key=lambda x: sorted(x['barName']))
+    print(config_list)
     cpu_memory_figure_util.Draw(
         figureTitle=figureTitle,
         configs=config_list,

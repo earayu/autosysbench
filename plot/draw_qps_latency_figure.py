@@ -54,14 +54,14 @@ def draw_figure_from_aggregation_result(path, figureTitle):
             file_dict['barName'] = 'MySQL'
             file_dict['lineName'] = 'MySQL Latency'
         elif 'vtgate' in filename:
-            file_dict['barName'] = 'VTGate'
-            file_dict['lineName'] = 'VTGate Latency'
+            file_dict['barName'] = 'WeSQL-Scale'
+            file_dict['lineName'] = 'WeSQL-Scale Latency'
         else:
             pass
         config_list.append(file_dict)
-        
-    print(file_dict)
 
+    config_list = sorted(config_list, key=lambda x: sorted(x['barName']))
+    print(config_list)
     qps_latency_figure_util.Draw(
         figureTitle=figureTitle,
         configs=config_list,

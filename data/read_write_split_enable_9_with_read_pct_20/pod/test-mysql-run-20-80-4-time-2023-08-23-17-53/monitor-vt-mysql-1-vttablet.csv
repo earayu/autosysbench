@@ -1,7 +1,0 @@
-timeStamp,POD,NAME,CPU(cores),MEMORY(bytes)
-17:55:04,vt-mysql-1,vttablet,2m,74Mi
-17:55:09,vt-mysql-1,vttablet,2m,74Mi
-17:55:14,vt-mysql-1,vttablet,2m,74Mi
-17:55:20,vt-mysql-1,vttablet,2m,74Mi
-17:55:25,vt-mysql-1,vttablet,2m,74Mi
-17:55:30,vt-mysql-1,vttablet,3m,75Mi
