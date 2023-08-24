@@ -1,0 +1,1478 @@
+run sysbench
+check mysql database exists
+mysql host 172.16.134.200 connect success!
+database mydb exists
+/usr/bin/sysbench
+cd ./sysbench/src/lua;sysbench --db-driver=mysql --mysql-host=172.16.134.200 --mysql-port=3306 --mysql-user=root --mysql-password=sf2gxx9r --mysql-db=mydb --table_size=2000000 --tables=50 --time=100 --threads=100 --events=0 --percentile=99 --read-percent=20 --write-percent=80 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable --report-interval=1 oltp_read_write_pct run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 100
+Report intermediate results every 1 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+[ 1s ] thds: 100 tps: 59.92 qps: 10654.31 (r/w/o: 2717.25/7937.06/0.00) lat (ms,99%): 995.51 err/s: 0.00 reconn/s: 0.00
+[ 2s ] thds: 100 tps: 40.02 qps: 7566.34 (r/w/o: 1279.73/6286.60/0.00) lat (ms,99%): 1149.76 err/s: 0.00 reconn/s: 0.00
+[ 3s ] thds: 100 tps: 100.00 qps: 7263.99 (r/w/o: 2000.00/5263.99/0.00) lat (ms,99%): 1453.01 err/s: 0.00 reconn/s: 0.00
+[ 4s ] thds: 100 tps: 50.00 qps: 5297.81 (r/w/o: 859.97/4437.84/0.00) lat (ms,99%): 1708.63 err/s: 0.00 reconn/s: 0.00
+[ 5s ] thds: 100 tps: 50.00 qps: 5156.09 (r/w/o: 1140.02/4016.07/0.00) lat (ms,99%): 1869.60 err/s: 0.00 reconn/s: 0.00
+[ 6s ] thds: 100 tps: 73.99 qps: 5426.57 (r/w/o: 1237.90/4188.66/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 7s ] thds: 100 tps: 26.00 qps: 5318.56 (r/w/o: 762.08/4556.48/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 8s ] thds: 100 tps: 82.00 qps: 5151.76 (r/w/o: 1488.93/3662.83/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 9s ] thds: 100 tps: 18.00 qps: 4552.19 (r/w/o: 511.02/4041.17/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 10s ] thds: 100 tps: 78.00 qps: 5169.96 (r/w/o: 1317.99/3851.97/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 11s ] thds: 100 tps: 22.00 qps: 4758.03 (r/w/o: 682.00/4076.03/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 12s ] thds: 100 tps: 30.00 qps: 3870.97 (r/w/o: 528.00/3342.98/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 13s ] thds: 100 tps: 70.00 qps: 5205.05 (r/w/o: 1472.01/3733.03/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 14s ] thds: 100 tps: 29.00 qps: 4789.84 (r/w/o: 516.98/4272.85/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 15s ] thds: 100 tps: 71.00 qps: 5628.19 (r/w/o: 1483.05/4145.14/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 16s ] thds: 100 tps: 60.00 qps: 5394.83 (r/w/o: 1111.96/4282.86/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 17s ] thds: 100 tps: 39.95 qps: 4904.30 (r/w/o: 886.79/4017.51/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 18s ] thds: 100 tps: 66.09 qps: 5271.29 (r/w/o: 1159.60/4111.68/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 19s ] thds: 100 tps: 34.00 qps: 4048.02 (r/w/o: 842.01/3206.02/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 20s ] thds: 100 tps: 11.00 qps: 3702.05 (r/w/o: 177.00/3525.05/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 21s ] thds: 100 tps: 89.00 qps: 5355.96 (r/w/o: 1822.99/3532.97/0.00) lat (ms,99%): 2493.86 err/s: 0.00 reconn/s: 0.00
+[ 22s ] thds: 100 tps: 9.00 qps: 4570.02 (r/w/o: 171.00/4399.02/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 23s ] thds: 100 tps: 91.00 qps: 5800.98 (r/w/o: 1828.99/3971.99/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 24s ] thds: 100 tps: 13.00 qps: 4504.01 (r/w/o: 260.00/4244.01/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 25s ] thds: 100 tps: 87.00 qps: 5687.01 (r/w/o: 1740.00/3947.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 26s ] thds: 100 tps: 29.00 qps: 4866.87 (r/w/o: 465.99/4400.88/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 27s ] thds: 100 tps: 71.00 qps: 5302.13 (r/w/o: 1534.04/3768.09/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 28s ] thds: 100 tps: 31.00 qps: 4611.00 (r/w/o: 480.00/4131.00/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 29s ] thds: 100 tps: 69.00 qps: 5110.97 (r/w/o: 1519.99/3590.98/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 30s ] thds: 100 tps: 5.00 qps: 3356.02 (r/w/o: 84.00/3272.02/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 31s ] thds: 100 tps: 93.00 qps: 5417.96 (r/w/o: 1875.98/3541.97/0.00) lat (ms,99%): 2449.36 err/s: 0.00 reconn/s: 0.00
+[ 32s ] thds: 100 tps: 4.00 qps: 3854.03 (r/w/o: 65.00/3789.03/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 33s ] thds: 100 tps: 87.00 qps: 5447.02 (r/w/o: 1738.01/3709.01/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 34s ] thds: 100 tps: 13.00 qps: 4721.97 (r/w/o: 268.00/4453.97/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 35s ] thds: 100 tps: 87.00 qps: 5511.99 (r/w/o: 1749.00/3762.99/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 36s ] thds: 100 tps: 18.00 qps: 5036.06 (r/w/o: 342.00/4694.06/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 37s ] thds: 100 tps: 89.00 qps: 5566.95 (r/w/o: 1797.98/3768.97/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 38s ] thds: 100 tps: 16.00 qps: 4660.99 (r/w/o: 299.00/4361.99/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 39s ] thds: 100 tps: 79.00 qps: 4880.95 (r/w/o: 1600.98/3279.97/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 100 tps: 16.00 qps: 4440.08 (r/w/o: 309.01/4131.07/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 41s ] thds: 100 tps: 77.00 qps: 5134.81 (r/w/o: 1523.94/3610.87/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 42s ] thds: 100 tps: 22.00 qps: 4389.15 (r/w/o: 449.02/3940.14/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 43s ] thds: 100 tps: 85.00 qps: 6050.94 (r/w/o: 1690.98/4359.96/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 44s ] thds: 100 tps: 24.00 qps: 4845.05 (r/w/o: 461.00/4384.04/0.00) lat (ms,99%): 1903.57 err/s: 0.00 reconn/s: 0.00
+[ 45s ] thds: 100 tps: 79.00 qps: 5673.96 (r/w/o: 1620.99/4052.97/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 46s ] thds: 100 tps: 32.00 qps: 5280.01 (r/w/o: 620.00/4660.01/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 47s ] thds: 100 tps: 70.00 qps: 5159.00 (r/w/o: 1425.00/3734.00/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 48s ] thds: 100 tps: 16.00 qps: 3833.97 (r/w/o: 312.00/3521.97/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 49s ] thds: 100 tps: 71.00 qps: 4887.03 (r/w/o: 1412.01/3475.02/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 50s ] thds: 100 tps: 28.00 qps: 4791.01 (r/w/o: 576.00/4215.01/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 51s ] thds: 100 tps: 72.00 qps: 5036.99 (r/w/o: 1380.00/3656.99/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 52s ] thds: 100 tps: 26.00 qps: 4481.04 (r/w/o: 534.00/3947.03/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 53s ] thds: 100 tps: 68.00 qps: 5119.96 (r/w/o: 1386.99/3732.97/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 54s ] thds: 100 tps: 25.00 qps: 4430.01 (r/w/o: 519.00/3911.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 55s ] thds: 100 tps: 61.00 qps: 4586.98 (r/w/o: 1157.99/3428.98/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 56s ] thds: 100 tps: 38.00 qps: 5260.00 (r/w/o: 822.00/4438.00/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 57s ] thds: 100 tps: 69.00 qps: 5368.04 (r/w/o: 1377.01/3991.03/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 58s ] thds: 100 tps: 33.00 qps: 4611.02 (r/w/o: 663.00/3948.01/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 59s ] thds: 100 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest33 SET k=k+1 WHERE id=999308'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest10 SET k=k+1 WHERE id=1007148'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=995503'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest15 SET k=k+1 WHERE id=1009114'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=1004221'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=1000620'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest40 SET k=k+1 WHERE id=997379'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=1065617'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest46 SET k=k+1 WHERE id=1001994'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest22 SET k=k+1 WHERE id=1002053'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=998036'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=1000587'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=1009048'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=1007856'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest10 SET k=k+1 WHERE id=1001543'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=1022764'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest33 SET k=k+1 WHERE id=1002360'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=1209767'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest33 SET k=k+1 WHERE id=997726'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=1007854'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=691163'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest15 SET k=k+1 WHERE id=999621'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=1008892'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest35 SET k=k+1 WHERE id=1190340'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=999903'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=999123'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest9 SET k=k+1 WHERE id=705967'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest39 SET k=k+1 WHERE id=1009278'
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=1002194'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=858466'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=1002949'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=997780'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=997695'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=996118'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=1008827'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=918693'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=1002371'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest40 SET k=k+1 WHERE id=1004927'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1006294'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=1205522'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest18 SET k=k+1 WHERE id=946592'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=995577'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest9 SET k=k+1 WHERE id=1006607'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest30 SET k=k+1 WHERE id=1000291'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest35 SET k=k+1 WHERE id=1240447'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=995349'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=1007007'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=996057'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1312891'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=1003217'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest40 SET k=k+1 WHERE id=1008573'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=931924'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=1009284'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=1000002'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=998933'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=996999'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=996614'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=996131'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest38 SET k=k+1 WHERE id=1004104'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=1281870'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest16 SET k=k+1 WHERE id=1001916'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest39 SET k=k+1 WHERE id=1008134'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=1002210'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest16 SET k=k+1 WHERE id=1000825'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest16 SET k=k+1 WHERE id=1004036'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest39 SET k=k+1 WHERE id=897824'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=1003830'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=1003434'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest5 SET k=k+1 WHERE id=1127875'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=1157847'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest45 SET k=k+1 WHERE id=1007929'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=1008946'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=883777'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=1008907'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=999052'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=1001186'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest33 SET k=k+1 WHERE id=1004224'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest38 SET k=k+1 WHERE id=1009731'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=1005612'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1009956'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest36 SET k=k+1 WHERE id=1000690'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=997203'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=758725'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest38 SET k=k+1 WHERE id=1005832'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=1001820'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest29 SET k=k+1 WHERE id=999466'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest9 SET k=k+1 WHERE id=1001551'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=1014409'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest36 SET k=k+1 WHERE id=995561'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest36 SET k=k+1 WHERE id=1008892'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=1003959'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest44 SET k=k+1 WHERE id=749719'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=997997'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=999636'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest30 SET k=k+1 WHERE id=831870'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=1007631'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=1006061'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=957949'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest30 SET k=k+1 WHERE id=687244'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest18 SET k=k+1 WHERE id=1140317'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+[]
+check mysql database exists
+mysql host 172.16.134.200 connect success!
+database mydb exists
+cd ./sysbench/src/lua;sysbench --db-driver=mysql --mysql-host=172.16.134.200 --mysql-port=3306 --mysql-user=root --mysql-password=sf2gxx9r --mysql-db=mydb --table_size=2000000 --tables=50 --time=100 --threads=100 --events=0 --percentile=99 --read-percent=20 --write-percent=80 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable --report-interval=1 oltp_read_write_pct run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 100
+Report intermediate results every 1 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+[ 1s ] thds: 100 tps: 2.00 qps: 9446.16 (r/w/o: 2005.27/7440.89/0.00) lat (ms,99%): 995.51 err/s: 0.00 reconn/s: 0.00
+[ 2s ] thds: 100 tps: 98.05 qps: 7366.10 (r/w/o: 1993.11/5372.99/0.00) lat (ms,99%): 1280.93 err/s: 0.00 reconn/s: 0.00
+[ 3s ] thds: 100 tps: 100.00 qps: 6004.97 (r/w/o: 1999.99/4004.98/0.00) lat (ms,99%): 1739.68 err/s: 0.00 reconn/s: 0.00
+[ 4s ] thds: 100 tps: 0.00 qps: 4459.05 (r/w/o: 0.00/4459.05/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 5s ] thds: 100 tps: 100.00 qps: 5557.95 (r/w/o: 1996.98/3560.97/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 6s ] thds: 100 tps: 0.00 qps: 4044.04 (r/w/o: 3.00/4041.04/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 7s ] thds: 100 tps: 60.97 qps: 4277.55 (r/w/o: 1135.35/3142.20/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 8s ] thds: 100 tps: 39.02 qps: 4596.61 (r/w/o: 864.49/3732.12/0.00) lat (ms,99%): 2449.36 err/s: 0.00 reconn/s: 0.00
+[ 9s ] thds: 100 tps: 50.00 qps: 5009.01 (r/w/o: 835.00/4174.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 10s ] thds: 100 tps: 50.00 qps: 4982.01 (r/w/o: 1165.00/3817.01/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 11s ] thds: 100 tps: 31.00 qps: 4457.00 (r/w/o: 520.00/3937.00/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 12s ] thds: 100 tps: 69.00 qps: 4744.97 (r/w/o: 1479.99/3264.98/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 13s ] thds: 100 tps: 17.00 qps: 4482.02 (r/w/o: 273.00/4209.01/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 14s ] thds: 100 tps: 82.99 qps: 5201.64 (r/w/o: 1726.88/3474.76/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 15s ] thds: 100 tps: 4.00 qps: 3763.27 (r/w/o: 80.01/3683.26/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 16s ] thds: 100 tps: 96.00 qps: 5707.94 (r/w/o: 1919.98/3787.96/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 17s ] thds: 100 tps: 3.00 qps: 3949.04 (r/w/o: 60.00/3889.04/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 18s ] thds: 100 tps: 25.00 qps: 1916.00 (r/w/o: 500.00/1416.00/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 19s ] thds: 100 tps: 72.00 qps: 4682.00 (r/w/o: 1440.00/3242.00/0.00) lat (ms,99%): 3040.14 err/s: 0.00 reconn/s: 0.00
+[ 20s ] thds: 100 tps: 26.00 qps: 5230.84 (r/w/o: 506.98/4723.85/0.00) lat (ms,99%): 2778.39 err/s: 0.00 reconn/s: 0.00
+[ 21s ] thds: 100 tps: 74.00 qps: 5773.04 (r/w/o: 1493.01/4280.03/0.00) lat (ms,99%): 2680.11 err/s: 0.00 reconn/s: 0.00
+[ 22s ] thds: 100 tps: 39.00 qps: 4900.89 (r/w/o: 758.98/4141.91/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 23s ] thds: 100 tps: 61.00 qps: 5174.22 (r/w/o: 1241.05/3933.17/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 24s ] thds: 100 tps: 29.00 qps: 4254.92 (r/w/o: 536.99/3717.93/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 25s ] thds: 100 tps: 71.00 qps: 4856.87 (r/w/o: 1462.96/3393.91/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 26s ] thds: 100 tps: 9.00 qps: 3933.19 (r/w/o: 180.01/3753.18/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 27s ] thds: 100 tps: 89.00 qps: 5038.97 (r/w/o: 1764.99/3273.98/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 28s ] thds: 100 tps: 11.00 qps: 4884.90 (r/w/o: 235.00/4649.90/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 29s ] thds: 100 tps: 90.00 qps: 5384.96 (r/w/o: 1799.99/3584.97/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 30s ] thds: 100 tps: 13.00 qps: 4759.16 (r/w/o: 219.01/4540.15/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 31s ] thds: 100 tps: 87.00 qps: 5215.84 (r/w/o: 1767.95/3447.90/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 32s ] thds: 100 tps: 11.00 qps: 4703.10 (r/w/o: 233.00/4470.09/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 33s ] thds: 100 tps: 84.95 qps: 4806.43 (r/w/o: 1677.10/3129.33/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 34s ] thds: 100 tps: 9.00 qps: 4296.34 (r/w/o: 187.10/4109.24/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 35s ] thds: 100 tps: 74.00 qps: 4466.00 (r/w/o: 1480.00/2986.00/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 36s ] thds: 100 tps: 23.99 qps: 5003.99 (r/w/o: 478.71/4525.28/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 37s ] thds: 100 tps: 83.05 qps: 5566.18 (r/w/o: 1640.94/3925.24/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 38s ] thds: 100 tps: 19.00 qps: 5028.16 (r/w/o: 416.01/4612.15/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 39s ] thds: 100 tps: 91.00 qps: 5892.72 (r/w/o: 1788.91/4103.80/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 100 tps: 10.00 qps: 4261.20 (r/w/o: 211.01/4050.19/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 41s ] thds: 100 tps: 79.00 qps: 4893.97 (r/w/o: 1564.99/3328.98/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 42s ] thds: 100 tps: 17.00 qps: 3978.74 (r/w/o: 374.98/3603.77/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 43s ] thds: 100 tps: 73.00 qps: 5194.33 (r/w/o: 1460.09/3734.24/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 44s ] thds: 100 tps: 27.00 qps: 4774.77 (r/w/o: 539.97/4234.80/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 45s ] thds: 100 tps: 74.00 qps: 5122.26 (r/w/o: 1450.07/3672.19/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 46s ] thds: 100 tps: 26.00 qps: 4926.01 (r/w/o: 550.00/4376.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 47s ] thds: 100 tps: 78.00 qps: 5708.94 (r/w/o: 1559.98/4148.96/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 48s ] thds: 100 tps: 22.99 qps: 4677.19 (r/w/o: 447.73/4229.46/0.00) lat (ms,99%): 1938.16 err/s: 0.00 reconn/s: 0.00
+[ 49s ] thds: 100 tps: 77.04 qps: 5166.02 (r/w/o: 1549.90/3616.11/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 50s ] thds: 100 tps: 22.00 qps: 4092.10 (r/w/o: 435.01/3657.09/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 51s ] thds: 100 tps: 68.00 qps: 5202.00 (r/w/o: 1368.00/3834.00/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 52s ] thds: 100 tps: 31.00 qps: 4615.78 (r/w/o: 619.97/3995.81/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 53s ] thds: 100 tps: 58.00 qps: 4835.19 (r/w/o: 1126.04/3709.15/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 54s ] thds: 100 tps: 42.00 qps: 4925.94 (r/w/o: 873.99/4051.95/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 55s ] thds: 100 tps: 63.00 qps: 5177.12 (r/w/o: 1142.03/4035.09/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 56s ] thds: 100 tps: 37.00 qps: 4605.98 (r/w/o: 858.00/3747.98/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 57s ] thds: 100 tps: 49.00 qps: 4767.97 (r/w/o: 959.99/3807.98/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 58s ] thds: 100 tps: 51.00 qps: 5399.05 (r/w/o: 1040.01/4359.04/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 59s ] thds: 100 tps: 54.00 qps: 4939.00 (r/w/o: 1038.00/3901.00/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 100 tps: 48.00 qps: 5463.77 (r/w/o: 1001.96/4461.81/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 61s ] thds: 100 tps: 56.00 qps: 4872.21 (r/w/o: 1077.05/3795.16/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 62s ] thds: 100 tps: 46.00 qps: 5508.99 (r/w/o: 951.00/4558.00/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 63s ] thds: 100 tps: 56.00 qps: 4561.00 (r/w/o: 1088.00/3473.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 64s ] thds: 100 tps: 43.00 qps: 4818.01 (r/w/o: 865.00/3953.01/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 65s ] thds: 100 tps: 48.00 qps: 4524.00 (r/w/o: 970.00/3554.00/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 66s ] thds: 100 tps: 49.00 qps: 5033.00 (r/w/o: 1005.00/4028.00/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 67s ] thds: 100 tps: 55.00 qps: 5217.85 (r/w/o: 1082.97/4134.88/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 68s ] thds: 100 tps: 46.97 qps: 5406.92 (r/w/o: 960.45/4446.47/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 69s ] thds: 100 tps: 54.01 qps: 4665.44 (r/w/o: 1062.10/3603.34/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 70s ] thds: 100 tps: 46.02 qps: 5280.65 (r/w/o: 938.47/4342.18/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 71s ] thds: 100 tps: 59.00 qps: 5127.79 (r/w/o: 1151.95/3975.83/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 72s ] thds: 100 tps: 41.00 qps: 4985.21 (r/w/o: 848.04/4137.18/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 73s ] thds: 100 tps: 56.00 qps: 4609.99 (r/w/o: 1081.00/3528.99/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 74s ] thds: 100 tps: 44.00 qps: 5312.90 (r/w/o: 912.98/4399.92/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 75s ] thds: 100 tps: 46.00 qps: 4351.02 (r/w/o: 921.00/3430.02/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 76s ] thds: 100 tps: 53.00 qps: 4746.08 (r/w/o: 1064.02/3682.06/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 77s ] thds: 100 tps: 37.00 qps: 4614.77 (r/w/o: 686.97/3927.80/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 78s ] thds: 100 tps: 63.00 qps: 5434.19 (r/w/o: 1314.05/4120.15/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 79s ] thds: 100 tps: 31.00 qps: 4227.06 (r/w/o: 620.01/3607.05/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 80s ] thds: 100 tps: 70.00 qps: 5838.79 (r/w/o: 1399.95/4438.84/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 81s ] thds: 100 tps: 60.00 qps: 5673.19 (r/w/o: 1133.04/4540.15/0.00) lat (ms,99%): 1938.16 err/s: 0.00 reconn/s: 0.00
+[ 82s ] thds: 100 tps: 40.00 qps: 4797.01 (r/w/o: 867.00/3930.01/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 83s ] thds: 100 tps: 64.00 qps: 5453.96 (r/w/o: 1242.99/4210.97/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 84s ] thds: 100 tps: 36.00 qps: 4584.04 (r/w/o: 757.01/3827.03/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 85s ] thds: 100 tps: 39.00 qps: 4326.02 (r/w/o: 779.00/3547.02/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 86s ] thds: 100 tps: 59.00 qps: 4696.95 (r/w/o: 1180.99/3515.97/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 87s ] thds: 100 tps: 35.00 qps: 4683.01 (r/w/o: 683.00/4000.01/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 88s ] thds: 100 tps: 59.00 qps: 4291.00 (r/w/o: 1197.00/3094.00/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 89s ] thds: 100 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1005132'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=996104'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=998063'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest38 SET k=k+1 WHERE id=998466'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=1003742'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=1121831'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=995638'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=1009389'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1363912'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1109306'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=924680'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=999283'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 5 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=1002090'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=960851'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest22 SET k=k+1 WHERE id=1007409'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest33 SET k=k+1 WHERE id=929544'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=1002672'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest35 SET k=k+1 WHERE id=1009614'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=996119'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1001479'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=997043'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=1001481'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest5 SET k=k+1 WHERE id=995427'
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=1000705'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=1178208'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=999900'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=1007102'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest45 SET k=k+1 WHERE id=995849'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=1212211'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest10 SET k=k+1 WHERE id=996696'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest16 SET k=k+1 WHERE id=1071078'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=1003133'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=1001855'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=1002906'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=830010'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest7 SET k=k+1 WHERE id=1008270'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1003418'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=1194395'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest36 SET k=k+1 WHERE id=1148523'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=1003752'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=995710'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=1005020'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=995535'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=996735'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest50 SET k=k+1 WHERE id=1006955'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1001579'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest22 SET k=k+1 WHERE id=1001493'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=995447'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=847829'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=1006410'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1005398'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=1000332'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=998033'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest38 SET k=k+1 WHERE id=1009794'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=1002699'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest38 SET k=k+1 WHERE id=1107362'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest33 SET k=k+1 WHERE id=1088232'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=1009700'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=1005351'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=1195962'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1002000'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=1009147'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=995324'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=999762'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=1008349'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=1005462'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=872033'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=1002553'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=1005966'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=1006578'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=999706'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=997265'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=1002212'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=1001629'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=1000530'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=998236'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=1003246'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=995526'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=1003903'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=1014029'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=1009722'
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest40 SET k=k+1 WHERE id=998937'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=1004350'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=997687'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=1001349'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=996711'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=1070500'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest9 SET k=k+1 WHERE id=1000321'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=996723'
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=956622'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest22 SET k=k+1 WHERE id=1007903'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=988250'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest6 SET k=k+1 WHERE id=1003417'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=1007591'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=1141151'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=999585'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=1394892'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=1029706'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1004927'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=1225467'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+[]
+check mysql database exists
+mysql host 172.16.134.200 connect success!
+database mydb exists
+cd ./sysbench/src/lua;sysbench --db-driver=mysql --mysql-host=172.16.134.200 --mysql-port=3306 --mysql-user=root --mysql-password=sf2gxx9r --mysql-db=mydb --table_size=2000000 --tables=50 --time=100 --threads=100 --events=0 --percentile=99 --read-percent=20 --write-percent=80 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable --report-interval=1 oltp_read_write_pct run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 100
+Report intermediate results every 1 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+[ 1s ] thds: 100 tps: 13.98 qps: 9804.87 (r/w/o: 2161.66/7643.21/0.00) lat (ms,99%): 995.51 err/s: 0.00 reconn/s: 0.00
+[ 2s ] thds: 100 tps: 86.06 qps: 6755.05 (r/w/o: 1836.37/4918.68/0.00) lat (ms,99%): 1213.57 err/s: 0.00 reconn/s: 0.00
+[ 3s ] thds: 100 tps: 99.99 qps: 6259.67 (r/w/o: 1989.89/4269.77/0.00) lat (ms,99%): 1803.47 err/s: 0.00 reconn/s: 0.00
+[ 4s ] thds: 100 tps: 0.00 qps: 4943.21 (r/w/o: 10.00/4933.20/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 5s ] thds: 100 tps: 100.00 qps: 5317.04 (r/w/o: 2000.01/3317.02/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 6s ] thds: 100 tps: 0.00 qps: 3730.03 (r/w/o: 0.00/3730.03/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 7s ] thds: 100 tps: 70.00 qps: 4665.98 (r/w/o: 1344.99/3320.99/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 8s ] thds: 100 tps: 30.00 qps: 4352.87 (r/w/o: 654.98/3697.89/0.00) lat (ms,99%): 2493.86 err/s: 0.00 reconn/s: 0.00
+[ 9s ] thds: 100 tps: 13.00 qps: 3719.86 (r/w/o: 218.99/3500.87/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 10s ] thds: 100 tps: 87.00 qps: 5115.23 (r/w/o: 1781.08/3334.15/0.00) lat (ms,99%): 2539.17 err/s: 0.00 reconn/s: 0.00
+[ 11s ] thds: 100 tps: 0.00 qps: 3739.11 (r/w/o: 0.00/3739.11/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 12s ] thds: 100 tps: 100.00 qps: 5449.91 (r/w/o: 1999.97/3449.94/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 13s ] thds: 100 tps: 3.00 qps: 4831.09 (r/w/o: 42.00/4789.09/0.00) lat (ms,99%): 1938.16 err/s: 0.00 reconn/s: 0.00
+[ 14s ] thds: 100 tps: 97.00 qps: 4966.93 (r/w/o: 1957.97/3008.95/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 15s ] thds: 100 tps: 0.00 qps: 4099.07 (r/w/o: 0.00/4099.07/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 16s ] thds: 100 tps: 100.00 qps: 5660.97 (r/w/o: 1999.99/3660.98/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 17s ] thds: 100 tps: 0.00 qps: 3835.02 (r/w/o: 0.00/3835.02/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 18s ] thds: 100 tps: 20.00 qps: 2518.00 (r/w/o: 400.00/2118.00/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 19s ] thds: 100 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=1007999'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest10 SET k=k+1 WHERE id=1003769'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=1004502'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=969534'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest39 SET k=k+1 WHERE id=1002194'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=954505'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=1005368'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1009232'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=819705'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=1005854'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest50 SET k=k+1 WHERE id=1005001'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=1007183'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=969072'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=1008416'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=995776'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=942020'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest15 SET k=k+1 WHERE id=1009461'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1009640'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest22 SET k=k+1 WHERE id=996479'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=1005696'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=1008601'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=1007757'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1008785'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=903173'
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=1002453'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=1203837'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=975103'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=996593'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=1006547'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest45 SET k=k+1 WHERE id=1119412'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest18 SET k=k+1 WHERE id=1258320'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=997172'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1001832'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=1057794'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=1188690'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest19 SET k=k+1 WHERE id=1137208'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest40 SET k=k+1 WHERE id=1005465'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest6 SET k=k+1 WHERE id=1002192'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=997263'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=997281'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest16 SET k=k+1 WHERE id=1120968'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=1009468'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=1008329'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=1006145'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=1006899'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest10 SET k=k+1 WHERE id=996871'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=914435'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest18 SET k=k+1 WHERE id=995765'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1000988'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest6 SET k=k+1 WHERE id=999657'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1002759'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest29 SET k=k+1 WHERE id=999853'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1003770'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=999062'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=1000514'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1007922'
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest33 SET k=k+1 WHERE id=995171'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=1051839'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest15 SET k=k+1 WHERE id=996848'
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=902674'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=996144'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=941025'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=745770'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=833647'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest44 SET k=k+1 WHERE id=1008602'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest16 SET k=k+1 WHERE id=1007738'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=999349'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=1009893'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=999991'
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest39 SET k=k+1 WHERE id=997906'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1000809'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=998539'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest5 SET k=k+1 WHERE id=1006909'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=999755'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=1004364'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest40 SET k=k+1 WHERE id=1000394'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest7 SET k=k+1 WHERE id=1007119'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=1000758'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=998480'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest50 SET k=k+1 WHERE id=1006774'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest29 SET k=k+1 WHERE id=933768'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest50 SET k=k+1 WHERE id=1004563'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=890867'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest22 SET k=k+1 WHERE id=1006495'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=1000973'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1231533'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=999276'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest36 SET k=k+1 WHERE id=1004897'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1005260'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest18 SET k=k+1 WHERE id=1004982'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=920738'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest5 SET k=k+1 WHERE id=998840'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest15 SET k=k+1 WHERE id=1000041'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest19 SET k=k+1 WHERE id=1002898'
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=1005518'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest18 SET k=k+1 WHERE id=1001989'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=1001922'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest22 SET k=k+1 WHERE id=1007805'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=999825'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest30 SET k=k+1 WHERE id=1233891'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+[]
+check mysql database exists
+mysql host 172.16.134.200 connect success!
+database mydb exists
+cd ./sysbench/src/lua;sysbench --db-driver=mysql --mysql-host=172.16.134.200 --mysql-port=3306 --mysql-user=root --mysql-password=sf2gxx9r --mysql-db=mydb --table_size=2000000 --tables=50 --time=100 --threads=100 --events=0 --percentile=99 --read-percent=20 --write-percent=80 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable --report-interval=1 oltp_read_write_pct run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 100
+Report intermediate results every 1 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+[ 1s ] thds: 100 tps: 0.00 qps: 7802.69 (r/w/o: 1997.36/5805.33/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 2s ] thds: 100 tps: 100.05 qps: 6021.13 (r/w/o: 2001.04/4020.09/0.00) lat (ms,99%): 1739.68 err/s: 0.00 reconn/s: 0.00
+[ 3s ] thds: 100 tps: 60.00 qps: 6933.05 (r/w/o: 820.01/6113.04/0.00) lat (ms,99%): 1533.66 err/s: 0.00 reconn/s: 0.00
+[ 4s ] thds: 100 tps: 40.00 qps: 6677.02 (r/w/o: 1180.00/5497.01/0.00) lat (ms,99%): 1589.90 err/s: 0.00 reconn/s: 0.00
+[ 5s ] thds: 100 tps: 100.00 qps: 5543.99 (r/w/o: 1999.99/3543.99/0.00) lat (ms,99%): 1739.68 err/s: 0.00 reconn/s: 0.00
+[ 6s ] thds: 100 tps: 0.00 qps: 3654.02 (r/w/o: 0.00/3654.02/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 7s ] thds: 100 tps: 60.00 qps: 4479.96 (r/w/o: 1083.99/3395.97/0.00) lat (ms,99%): 2493.86 err/s: 0.00 reconn/s: 0.00
+[ 8s ] thds: 100 tps: 40.00 qps: 4715.03 (r/w/o: 916.01/3799.03/0.00) lat (ms,99%): 2539.17 err/s: 0.00 reconn/s: 0.00
+[ 9s ] thds: 100 tps: 58.00 qps: 5211.00 (r/w/o: 1006.00/4205.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 10s ] thds: 100 tps: 42.00 qps: 5166.00 (r/w/o: 994.00/4172.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 11s ] thds: 100 tps: 72.00 qps: 5349.97 (r/w/o: 1352.99/3996.98/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 12s ] thds: 100 tps: 28.00 qps: 4489.03 (r/w/o: 647.00/3842.02/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 13s ] thds: 100 tps: 41.00 qps: 4499.99 (r/w/o: 796.00/3704.00/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 14s ] thds: 100 tps: 59.00 qps: 5001.97 (r/w/o: 1203.99/3797.97/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 15s ] thds: 100 tps: 12.00 qps: 3798.04 (r/w/o: 240.00/3558.04/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 16s ] thds: 100 tps: 88.00 qps: 5089.93 (r/w/o: 1759.98/3329.96/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 17s ] thds: 100 tps: 5.00 qps: 4375.06 (r/w/o: 76.00/4299.06/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 18s ] thds: 100 tps: 95.00 qps: 5656.97 (r/w/o: 1923.99/3732.98/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 19s ] thds: 100 tps: 8.00 qps: 4634.02 (r/w/o: 130.00/4504.02/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 20s ] thds: 100 tps: 92.00 qps: 5787.97 (r/w/o: 1869.99/3917.98/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 21s ] thds: 100 tps: 11.00 qps: 4316.02 (r/w/o: 198.00/4118.02/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 22s ] thds: 100 tps: 89.00 qps: 5044.97 (r/w/o: 1801.99/3242.98/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 23s ] thds: 100 tps: 3.00 qps: 3939.02 (r/w/o: 60.00/3879.02/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 24s ] thds: 100 tps: 95.00 qps: 5243.97 (r/w/o: 1899.99/3343.98/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 25s ] thds: 100 tps: 2.00 qps: 4189.04 (r/w/o: 40.00/4149.04/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 26s ] thds: 100 tps: 99.00 qps: 6030.96 (r/w/o: 1979.99/4050.97/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 27s ] thds: 100 tps: 1.00 qps: 4251.01 (r/w/o: 20.00/4231.01/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 28s ] thds: 100 tps: 99.00 qps: 5524.95 (r/w/o: 1979.98/3544.97/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 29s ] thds: 100 tps: 1.00 qps: 3879.03 (r/w/o: 20.00/3859.03/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 30s ] thds: 100 tps: 98.00 qps: 5821.00 (r/w/o: 1940.00/3881.00/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 31s ] thds: 100 tps: 2.00 qps: 4126.03 (r/w/o: 60.00/4066.03/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 32s ] thds: 100 tps: 94.00 qps: 5408.92 (r/w/o: 1851.97/3556.95/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 33s ] thds: 100 tps: 6.00 qps: 4235.02 (r/w/o: 148.00/4087.02/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 34s ] thds: 100 tps: 80.00 qps: 4899.01 (r/w/o: 1447.00/3452.01/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 35s ] thds: 100 tps: 20.00 qps: 4380.03 (r/w/o: 553.00/3827.03/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 36s ] thds: 100 tps: 54.00 qps: 4802.99 (r/w/o: 966.00/3836.99/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 37s ] thds: 100 tps: 46.00 qps: 4730.01 (r/w/o: 1034.00/3696.01/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 38s ] thds: 100 tps: 35.00 qps: 4401.99 (r/w/o: 637.00/3764.99/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 39s ] thds: 100 tps: 65.00 qps: 5790.00 (r/w/o: 1363.00/4427.00/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 100 tps: 54.00 qps: 5127.01 (r/w/o: 1023.00/4104.01/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 41s ] thds: 100 tps: 46.00 qps: 4659.01 (r/w/o: 977.00/3682.01/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 42s ] thds: 100 tps: 28.00 qps: 4140.95 (r/w/o: 540.99/3599.96/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 43s ] thds: 100 tps: 72.00 qps: 5345.04 (r/w/o: 1459.01/3886.03/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 44s ] thds: 100 tps: 29.00 qps: 4737.00 (r/w/o: 580.00/4157.00/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 45s ] thds: 100 tps: 71.00 qps: 5515.01 (r/w/o: 1420.00/4095.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 46s ] thds: 100 tps: 36.00 qps: 4818.00 (r/w/o: 666.00/4152.00/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 47s ] thds: 100 tps: 64.00 qps: 5144.99 (r/w/o: 1334.00/3811.00/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 48s ] thds: 100 tps: 35.00 qps: 4832.00 (r/w/o: 671.00/4161.00/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 49s ] thds: 100 tps: 65.00 qps: 5554.97 (r/w/o: 1311.99/4242.98/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 50s ] thds: 100 tps: 46.00 qps: 4723.03 (r/w/o: 779.01/3944.03/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 51s ] thds: 100 tps: 53.00 qps: 4725.99 (r/w/o: 1218.00/3507.99/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 52s ] thds: 100 tps: 35.00 qps: 4848.02 (r/w/o: 642.00/4206.01/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 53s ] thds: 100 tps: 65.00 qps: 4867.96 (r/w/o: 1354.99/3512.97/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 54s ] thds: 100 tps: 28.00 qps: 4617.03 (r/w/o: 510.00/4107.03/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 55s ] thds: 100 tps: 72.00 qps: 5672.98 (r/w/o: 1482.99/4189.98/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 56s ] thds: 100 tps: 36.00 qps: 4871.00 (r/w/o: 717.00/4154.00/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 57s ] thds: 100 tps: 64.00 qps: 5017.00 (r/w/o: 1293.00/3724.00/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 58s ] thds: 100 tps: 28.00 qps: 4556.02 (r/w/o: 560.00/3996.01/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 59s ] thds: 100 tps: 72.00 qps: 5609.97 (r/w/o: 1439.99/4169.98/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 100 tps: 28.00 qps: 4176.99 (r/w/o: 544.00/3632.99/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 61s ] thds: 100 tps: 71.00 qps: 5200.03 (r/w/o: 1436.01/3764.02/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 62s ] thds: 100 tps: 20.00 qps: 4074.00 (r/w/o: 364.00/3710.00/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 63s ] thds: 100 tps: 80.00 qps: 6069.98 (r/w/o: 1635.99/4433.99/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 64s ] thds: 100 tps: 25.00 qps: 4446.99 (r/w/o: 477.00/3969.99/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 65s ] thds: 100 tps: 76.00 qps: 5910.98 (r/w/o: 1531.99/4378.98/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 66s ] thds: 100 tps: 35.00 qps: 4846.06 (r/w/o: 703.01/4143.05/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 67s ] thds: 100 tps: 67.00 qps: 5878.96 (r/w/o: 1337.99/4540.97/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 68s ] thds: 100 tps: 38.00 qps: 4447.01 (r/w/o: 740.00/3707.01/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 69s ] thds: 100 tps: 58.00 qps: 4601.98 (r/w/o: 1190.00/3411.99/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 70s ] thds: 100 tps: 4.00 qps: 1511.01 (r/w/o: 80.00/1431.01/0.00) lat (ms,99%): 3095.38 err/s: 0.00 reconn/s: 0.00
+[ 71s ] thds: 100 tps: 56.00 qps: 4804.99 (r/w/o: 1070.00/3734.99/0.00) lat (ms,99%): 2985.89 err/s: 0.00 reconn/s: 0.00
+[ 72s ] thds: 100 tps: 43.00 qps: 5265.99 (r/w/o: 891.00/4374.99/0.00) lat (ms,99%): 2932.60 err/s: 0.00 reconn/s: 0.00
+[ 73s ] thds: 100 tps: 73.00 qps: 5526.00 (r/w/o: 1408.00/4118.00/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 74s ] thds: 100 tps: 31.00 qps: 4943.01 (r/w/o: 674.00/4269.01/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 75s ] thds: 100 tps: 73.00 qps: 5520.99 (r/w/o: 1469.00/4051.99/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 76s ] thds: 100 tps: 30.00 qps: 4904.01 (r/w/o: 608.00/4296.01/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 77s ] thds: 100 tps: 75.00 qps: 5323.98 (r/w/o: 1487.99/3835.98/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 78s ] thds: 100 tps: 25.00 qps: 4657.02 (r/w/o: 512.00/4145.02/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 79s ] thds: 100 tps: 76.00 qps: 5421.92 (r/w/o: 1483.98/3937.94/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 80s ] thds: 100 tps: 17.00 qps: 3562.05 (r/w/o: 376.01/3186.04/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 81s ] thds: 100 tps: 59.00 qps: 4967.99 (r/w/o: 1146.00/3821.99/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 82s ] thds: 100 tps: 40.00 qps: 4722.00 (r/w/o: 828.00/3894.00/0.00) lat (ms,99%): 2449.36 err/s: 0.00 reconn/s: 0.00
+[ 83s ] thds: 100 tps: 64.00 qps: 5487.00 (r/w/o: 1251.00/4236.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 84s ] thds: 100 tps: 42.00 qps: 5487.01 (r/w/o: 846.00/4641.01/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 85s ] thds: 100 tps: 64.00 qps: 4994.99 (r/w/o: 1265.00/3730.00/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 86s ] thds: 100 tps: 36.00 qps: 5382.01 (r/w/o: 764.00/4618.01/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 87s ] thds: 100 tps: 79.00 qps: 5571.97 (r/w/o: 1555.99/4015.98/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 88s ] thds: 100 tps: 9.00 qps: 1226.00 (r/w/o: 204.00/1022.00/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest10 SET k=k+1 WHERE id=778699'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest35 SET k=k+1 WHERE id=995433'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest18 SET k=k+1 WHERE id=1007956'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=1004238'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest29 SET k=k+1 WHERE id=995655'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest5 SET k=k+1 WHERE id=995679'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest39 SET k=k+1 WHERE id=999613'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest38 SET k=k+1 WHERE id=1005656'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest5 SET k=k+1 WHERE id=1005323'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest36 SET k=k+1 WHERE id=1001941'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest50 SET k=k+1 WHERE id=1133315'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1004278'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1104718'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest10 SET k=k+1 WHERE id=1089383'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=1004882'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest6 SET k=k+1 WHERE id=999673'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest46 SET k=k+1 WHERE id=610521'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=976752'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=995433'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest16 SET k=k+1 WHERE id=996191'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest44 SET k=k+1 WHERE id=815812'
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=1004676'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=1004476'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest15 SET k=k+1 WHERE id=995363'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest7 SET k=k+1 WHERE id=942707'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=996381'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=1007847'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=1005289'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=1004995'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=1009136'
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=1005854'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest45 SET k=k+1 WHERE id=1004955'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest46 SET k=k+1 WHERE id=1005439'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest29 SET k=k+1 WHERE id=1007510'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=1065725'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=982579'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest39 SET k=k+1 WHERE id=827412'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest45 SET k=k+1 WHERE id=1000149'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest38 SET k=k+1 WHERE id=1007050'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=995225'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=1003799'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=1005032'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=996040'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=1001652'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=1001002'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=1006956'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=1009881'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=999177'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest30 SET k=k+1 WHERE id=996193'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest16 SET k=k+1 WHERE id=1002933'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=1061060'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest30 SET k=k+1 WHERE id=996919'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest46 SET k=k+1 WHERE id=1002660'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=1008206'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=1002580'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=997350'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest44 SET k=k+1 WHERE id=822817'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=1217912'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=1008389'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=1006751'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest46 SET k=k+1 WHERE id=1009591'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=1005477'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest33 SET k=k+1 WHERE id=1007522'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest46 SET k=k+1 WHERE id=1009866'
+(last message repeated 4 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest45 SET k=k+1 WHERE id=1007123'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest35 SET k=k+1 WHERE id=739771'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=1004604'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest19 SET k=k+1 WHERE id=1007280'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=998752'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 4 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest22 SET k=k+1 WHERE id=1000717'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=1001995'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1005149'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1007956'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=995239'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=944729'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=1008552'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=1001864'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=995691'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=1001906'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=797378'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1003336'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest33 SET k=k+1 WHERE id=996802'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=996469'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 4 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest44 SET k=k+1 WHERE id=1008986'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=863990'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=1009223'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1242869'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=989182'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest30 SET k=k+1 WHERE id=1297751'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest29 SET k=k+1 WHERE id=1009419'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=1115052'
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=701010'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest5 SET k=k+1 WHERE id=996139'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=995869'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=1000901'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=1001591'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=996398'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=998197'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=914393'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+FATAL: mysql_drv_query() returned error 7500 (The cluster's leadership has already change, please relocate consensus leader and retry.) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=1062283'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7500, state = 'HY000': The cluster's leadership has already change, please relocate consensus leader and retry.
+[]
+check mysql database exists
+mysql host 172.16.134.200 connect success!
+database mydb exists
+cd ./sysbench/src/lua;sysbench --db-driver=mysql --mysql-host=172.16.134.200 --mysql-port=3306 --mysql-user=root --mysql-password=sf2gxx9r --mysql-db=mydb --table_size=2000000 --tables=50 --time=100 --threads=100 --events=0 --percentile=99 --read-percent=20 --write-percent=80 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable --report-interval=1 oltp_read_write_pct run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 100
+Report intermediate results every 1 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+[ 1s ] thds: 100 tps: 0.00 qps: 9208.05 (r/w/o: 1996.98/7211.08/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 2s ] thds: 100 tps: 100.07 qps: 7404.20 (r/w/o: 2001.41/5402.80/0.00) lat (ms,99%): 1258.08 err/s: 0.00 reconn/s: 0.00
+[ 3s ] thds: 100 tps: 71.00 qps: 4766.01 (r/w/o: 1256.00/3510.01/0.00) lat (ms,99%): 1869.60 err/s: 0.00 reconn/s: 0.00
+[ 4s ] thds: 100 tps: 29.00 qps: 4899.03 (r/w/o: 744.00/4155.02/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 5s ] thds: 100 tps: 88.00 qps: 5534.91 (r/w/o: 1509.98/4024.94/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 6s ] thds: 100 tps: 12.00 qps: 4310.07 (r/w/o: 490.01/3820.06/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 7s ] thds: 100 tps: 38.00 qps: 4395.01 (r/w/o: 694.00/3701.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 8s ] thds: 100 tps: 62.00 qps: 4945.92 (r/w/o: 1305.98/3639.94/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 9s ] thds: 100 tps: 16.00 qps: 3989.05 (r/w/o: 241.00/3748.05/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 10s ] thds: 100 tps: 84.00 qps: 4955.97 (r/w/o: 1758.99/3196.98/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 11s ] thds: 100 tps: 0.00 qps: 3491.00 (r/w/o: 0.00/3491.00/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 12s ] thds: 100 tps: 100.00 qps: 5308.00 (r/w/o: 1978.00/3330.00/0.00) lat (ms,99%): 2585.31 err/s: 0.00 reconn/s: 0.00
+[ 13s ] thds: 100 tps: 0.00 qps: 4802.02 (r/w/o: 22.00/4780.02/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 14s ] thds: 100 tps: 100.00 qps: 5729.95 (r/w/o: 1999.98/3729.97/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 15s ] thds: 100 tps: 0.00 qps: 4177.05 (r/w/o: 0.00/4177.05/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 16s ] thds: 100 tps: 100.00 qps: 5997.99 (r/w/o: 2000.00/3997.99/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 17s ] thds: 100 tps: 0.00 qps: 4007.99 (r/w/o: 0.00/4007.99/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 18s ] thds: 100 tps: 98.00 qps: 5431.00 (r/w/o: 1927.00/3504.00/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 19s ] thds: 100 tps: 2.00 qps: 3855.06 (r/w/o: 72.96/3782.09/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 20s ] thds: 100 tps: 92.05 qps: 5304.64 (r/w/o: 1699.84/3604.79/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 21s ] thds: 100 tps: 8.00 qps: 3689.99 (r/w/o: 301.00/3388.99/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 22s ] thds: 100 tps: 53.00 qps: 4760.06 (r/w/o: 928.01/3832.05/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 23s ] thds: 100 tps: 47.00 qps: 4720.96 (r/w/o: 1071.99/3648.97/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 24s ] thds: 100 tps: 39.00 qps: 4627.00 (r/w/o: 639.00/3988.00/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 25s ] thds: 100 tps: 61.00 qps: 5138.00 (r/w/o: 1361.00/3777.00/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 26s ] thds: 100 tps: 44.00 qps: 4991.01 (r/w/o: 682.00/4309.01/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 27s ] thds: 100 tps: 56.00 qps: 5695.00 (r/w/o: 1318.00/4377.00/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 28s ] thds: 100 tps: 64.00 qps: 5101.95 (r/w/o: 1048.99/4052.96/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 29s ] thds: 100 tps: 36.00 qps: 5083.07 (r/w/o: 951.01/4132.06/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 30s ] thds: 100 tps: 44.00 qps: 4432.98 (r/w/o: 858.00/3574.99/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 31s ] thds: 100 tps: 56.00 qps: 4949.98 (r/w/o: 1142.00/3807.99/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 32s ] thds: 100 tps: 33.00 qps: 4453.02 (r/w/o: 581.00/3872.02/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 33s ] thds: 100 tps: 67.00 qps: 5192.02 (r/w/o: 1419.01/3773.02/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 34s ] thds: 100 tps: 23.00 qps: 4203.99 (r/w/o: 420.00/3783.99/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 35s ] thds: 100 tps: 77.00 qps: 5399.93 (r/w/o: 1579.98/3819.95/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 36s ] thds: 100 tps: 17.00 qps: 4053.08 (r/w/o: 335.01/3718.08/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 37s ] thds: 100 tps: 81.00 qps: 5205.00 (r/w/o: 1625.00/3580.00/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 38s ] thds: 100 tps: 17.00 qps: 4538.96 (r/w/o: 283.00/4255.96/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 39s ] thds: 100 tps: 83.00 qps: 5225.97 (r/w/o: 1711.99/3513.98/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 100 tps: 19.00 qps: 5086.98 (r/w/o: 353.00/4733.98/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 41s ] thds: 100 tps: 82.00 qps: 5503.01 (r/w/o: 1661.00/3842.01/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 42s ] thds: 100 tps: 17.00 qps: 4472.06 (r/w/o: 322.00/4150.06/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 43s ] thds: 100 tps: 84.00 qps: 6061.95 (r/w/o: 1708.99/4352.96/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 44s ] thds: 100 tps: 27.00 qps: 4665.02 (r/w/o: 529.00/4136.02/0.00) lat (ms,99%): 1938.16 err/s: 0.00 reconn/s: 0.00
+[ 45s ] thds: 100 tps: 73.00 qps: 5125.02 (r/w/o: 1471.00/3654.01/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 46s ] thds: 100 tps: 15.00 qps: 4177.00 (r/w/o: 287.00/3890.00/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 47s ] thds: 100 tps: 85.00 qps: 5476.97 (r/w/o: 1712.99/3763.98/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 48s ] thds: 100 tps: 11.00 qps: 3796.01 (r/w/o: 194.00/3602.01/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 49s ] thds: 100 tps: 86.00 qps: 5395.98 (r/w/o: 1745.99/3649.99/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 50s ] thds: 100 tps: 11.00 qps: 4264.01 (r/w/o: 185.00/4079.01/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 51s ] thds: 100 tps: 84.00 qps: 5120.98 (r/w/o: 1669.99/3450.98/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 52s ] thds: 100 tps: 15.00 qps: 4444.99 (r/w/o: 317.00/4127.99/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 53s ] thds: 100 tps: 75.00 qps: 5079.05 (r/w/o: 1457.01/3622.04/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 54s ] thds: 100 tps: 24.00 qps: 4858.97 (r/w/o: 518.00/4340.98/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 55s ] thds: 100 tps: 83.00 qps: 5660.00 (r/w/o: 1625.00/4035.00/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 56s ] thds: 100 tps: 22.00 qps: 4868.00 (r/w/o: 468.00/4400.00/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 57s ] thds: 100 tps: 80.00 qps: 5245.02 (r/w/o: 1543.01/3702.01/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 58s ] thds: 100 tps: 20.00 qps: 4914.01 (r/w/o: 479.00/4435.01/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 59s ] thds: 100 tps: 75.00 qps: 4922.97 (r/w/o: 1508.99/3413.98/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 100 tps: 18.00 qps: 4426.01 (r/w/o: 369.00/4057.01/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 61s ] thds: 100 tps: 78.00 qps: 5222.99 (r/w/o: 1519.00/3703.99/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 62s ] thds: 100 tps: 24.00 qps: 4860.01 (r/w/o: 520.00/4340.01/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 63s ] thds: 100 tps: 71.00 qps: 4935.00 (r/w/o: 1336.00/3599.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 64s ] thds: 100 tps: 29.00 qps: 4769.02 (r/w/o: 665.00/4104.02/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 65s ] thds: 100 tps: 67.00 qps: 5022.98 (r/w/o: 1276.99/3745.98/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 66s ] thds: 100 tps: 32.00 qps: 4788.03 (r/w/o: 703.00/4085.03/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 67s ] thds: 100 tps: 66.00 qps: 5129.98 (r/w/o: 1306.00/3823.99/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 68s ] thds: 100 tps: 32.00 qps: 4481.00 (r/w/o: 654.00/3827.00/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 69s ] thds: 100 tps: 55.00 qps: 4569.00 (r/w/o: 975.00/3594.00/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 70s ] thds: 100 tps: 41.00 qps: 3537.98 (r/w/o: 945.00/2592.99/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=1002373'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=758427'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1001396'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=996635'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest46 SET k=k+1 WHERE id=1000530'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=1004926'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=1006337'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=999301'
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=997647'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1001976'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=1000540'
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=997979'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=846791'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest9 SET k=k+1 WHERE id=1004589'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=997235'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=1007591'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest3 SET k=k+1 WHERE id=1002140'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest38 SET k=k+1 WHERE id=995493'
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest2 SET k=k+1 WHERE id=1076337'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest8 SET k=k+1 WHERE id=996802'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=995598'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest22 SET k=k+1 WHERE id=1003759'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=998471'
+(last message repeated 3 times)
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=1000474'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=917026'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest39 SET k=k+1 WHERE id=1005664'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest43 SET k=k+1 WHERE id=1223468'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 3 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=1000138'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=997089'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest35 SET k=k+1 WHERE id=1003168'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest9 SET k=k+1 WHERE id=1009192'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest49 SET k=k+1 WHERE id=854072'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest7 SET k=k+1 WHERE id=998551'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=1228151'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=997264'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest23 SET k=k+1 WHERE id=1005245'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=900294'
+(last message repeated 4 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=1000653'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest32 SET k=k+1 WHERE id=1160202'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest29 SET k=k+1 WHERE id=997515'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest34 SET k=k+1 WHERE id=1005836'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=996049'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=996540'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=999485'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest37 SET k=k+1 WHERE id=998967'
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=1001795'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=1001297'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=1007265'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest5 SET k=k+1 WHERE id=1008818'
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest48 SET k=k+1 WHERE id=999800'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest12 SET k=k+1 WHERE id=785094'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest7 SET k=k+1 WHERE id=1007028'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest47 SET k=k+1 WHERE id=998324'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest7 SET k=k+1 WHERE id=996538'
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest17 SET k=k+1 WHERE id=999599'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest6 SET k=k+1 WHERE id=1008561'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest31 SET k=k+1 WHERE id=997729'
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest9 SET k=k+1 WHERE id=1009513'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest14 SET k=k+1 WHERE id=1003523'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest5 SET k=k+1 WHERE id=998618'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest15 SET k=k+1 WHERE id=1006489'
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest29 SET k=k+1 WHERE id=1006730'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=1000464'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest6 SET k=k+1 WHERE id=997357'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest36 SET k=k+1 WHERE id=1005047'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest15 SET k=k+1 WHERE id=1010667'
+FATAL: mysql_drv_query() returned error 7504 (The consensus follower is not allowed to to do current operation.) for query 'UPDATE sbtest50 SET k=k+1 WHERE id=1003703'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 7504, state = 'HY000': The consensus follower is not allowed to to do current operation.
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest44 SET k=k+1 WHERE id=1000736'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=1005398'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=1008879'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest30 SET k=k+1 WHERE id=1007180'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest21 SET k=k+1 WHERE id=1009390'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=1008402'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest7 SET k=k+1 WHERE id=1008658'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest19 SET k=k+1 WHERE id=1009639'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest24 SET k=k+1 WHERE id=999943'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest41 SET k=k+1 WHERE id=1006178'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=1009788'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=995231'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest27 SET k=k+1 WHERE id=1008498'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest26 SET k=k+1 WHERE id=1002086'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=877381'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest13 SET k=k+1 WHERE id=645403'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest25 SET k=k+1 WHERE id=1005560'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest1 SET k=k+1 WHERE id=830331'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=1000653'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=986804'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest7 SET k=k+1 WHERE id=912524'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest39 SET k=k+1 WHERE id=1000340'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=715573'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 2 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest19 SET k=k+1 WHERE id=997066'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest35 SET k=k+1 WHERE id=1004201'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest36 SET k=k+1 WHERE id=998417'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest4 SET k=k+1 WHERE id=1000270'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest42 SET k=k+1 WHERE id=1009409'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest46 SET k=k+1 WHERE id=1008092'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest40 SET k=k+1 WHERE id=1000214'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest20 SET k=k+1 WHERE id=1006387'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+(last message repeated 1 times)
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest11 SET k=k+1 WHERE id=1007788'
+FATAL: mysql_drv_query() returned error 2013 (Lost connection to MySQL server during query) for query 'UPDATE sbtest28 SET k=k+1 WHERE id=786312'
+FATAL: `thread_run' function failed: ./oltp_common.lua:483: SQL error, errno = 2013, state = 'HY000': Lost connection to MySQL server during query
+[]
+check mysql database exists
+mysql host 172.16.134.200 connect success!
+database mydb exists
+cd ./sysbench/src/lua;sysbench --db-driver=mysql --mysql-host=172.16.134.200 --mysql-port=3306 --mysql-user=root --mysql-password=sf2gxx9r --mysql-db=mydb --table_size=2000000 --tables=50 --time=100 --threads=100 --events=0 --percentile=99 --read-percent=20 --write-percent=80 --skip_trx=on --mysql-ignore-errors=1062 --db-ps-mode=disable --report-interval=1 oltp_read_write_pct run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 100
+Report intermediate results every 1 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+[ 1s ] thds: 100 tps: 0.00 qps: 7173.96 (r/w/o: 1997.20/5176.75/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 2s ] thds: 100 tps: 100.05 qps: 5937.16 (r/w/o: 2001.07/3936.10/0.00) lat (ms,99%): 1903.57 err/s: 0.00 reconn/s: 0.00
+[ 3s ] thds: 100 tps: 0.00 qps: 5921.39 (r/w/o: 0.00/5921.39/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 4s ] thds: 100 tps: 100.00 qps: 7299.91 (r/w/o: 1999.97/5299.93/0.00) lat (ms,99%): 1589.90 err/s: 0.00 reconn/s: 0.00
+[ 5s ] thds: 100 tps: 80.00 qps: 5461.05 (r/w/o: 1505.02/3956.04/0.00) lat (ms,99%): 1771.29 err/s: 0.00 reconn/s: 0.00
+[ 6s ] thds: 100 tps: 20.00 qps: 4068.04 (r/w/o: 495.00/3573.03/0.00) lat (ms,99%): 1836.24 err/s: 0.00 reconn/s: 0.00
+[ 7s ] thds: 100 tps: 9.00 qps: 3307.96 (r/w/o: 123.00/3184.96/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 8s ] thds: 100 tps: 91.00 qps: 5345.03 (r/w/o: 1877.01/3468.02/0.00) lat (ms,99%): 2632.28 err/s: 0.00 reconn/s: 0.00
+[ 9s ] thds: 100 tps: 2.00 qps: 3927.03 (r/w/o: 25.00/3902.03/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 10s ] thds: 100 tps: 97.99 qps: 5362.69 (r/w/o: 1974.88/3387.80/0.00) lat (ms,99%): 2362.72 err/s: 0.00 reconn/s: 0.00
+[ 11s ] thds: 100 tps: 0.00 qps: 3615.06 (r/w/o: 0.00/3615.06/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 12s ] thds: 100 tps: 99.00 qps: 5497.04 (r/w/o: 1937.01/3560.03/0.00) lat (ms,99%): 2405.65 err/s: 0.00 reconn/s: 0.00
+[ 13s ] thds: 100 tps: 1.00 qps: 4706.15 (r/w/o: 63.00/4643.15/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 14s ] thds: 100 tps: 95.94 qps: 5331.70 (r/w/o: 1918.81/3412.89/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 15s ] thds: 100 tps: 4.00 qps: 3859.40 (r/w/o: 80.05/3779.35/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 16s ] thds: 100 tps: 70.00 qps: 4593.96 (r/w/o: 1204.99/3388.97/0.00) lat (ms,99%): 2449.36 err/s: 0.00 reconn/s: 0.00
+[ 17s ] thds: 100 tps: 30.00 qps: 4286.04 (r/w/o: 795.01/3491.03/0.00) lat (ms,99%): 2449.36 err/s: 0.00 reconn/s: 0.00
+[ 18s ] thds: 100 tps: 21.00 qps: 4028.00 (r/w/o: 420.00/3608.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 19s ] thds: 100 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,99%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 20s ] thds: 100 tps: 71.00 qps: 2946.00 (r/w/o: 1380.00/1566.00/0.00) lat (ms,99%): 4055.23 err/s: 0.00 reconn/s: 0.00
+[ 21s ] thds: 100 tps: 8.00 qps: 3774.03 (r/w/o: 200.00/3574.02/0.00) lat (ms,99%): 3982.86 err/s: 0.00 reconn/s: 0.00
+[ 22s ] thds: 100 tps: 96.00 qps: 6565.96 (r/w/o: 1894.99/4670.97/0.00) lat (ms,99%): 3911.79 err/s: 0.00 reconn/s: 0.00
+[ 23s ] thds: 100 tps: 7.00 qps: 5577.02 (r/w/o: 146.00/5431.02/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 24s ] thds: 100 tps: 97.00 qps: 6837.95 (r/w/o: 1958.99/4878.96/0.00) lat (ms,99%): 1648.20 err/s: 0.00 reconn/s: 0.00
+[ 25s ] thds: 100 tps: 29.00 qps: 4373.01 (r/w/o: 514.00/3859.01/0.00) lat (ms,99%): 1903.57 err/s: 0.00 reconn/s: 0.00
+[ 26s ] thds: 100 tps: 70.96 qps: 5135.93 (r/w/o: 1485.11/3650.82/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 27s ] thds: 100 tps: 20.00 qps: 4343.65 (r/w/o: 267.98/4075.68/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 28s ] thds: 100 tps: 80.05 qps: 5649.76 (r/w/o: 1733.15/3916.61/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 29s ] thds: 100 tps: 31.00 qps: 5054.05 (r/w/o: 569.01/4485.04/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 30s ] thds: 100 tps: 69.00 qps: 5670.84 (r/w/o: 1430.96/4239.88/0.00) lat (ms,99%): 2009.23 err/s: 0.00 reconn/s: 0.00
+[ 31s ] thds: 100 tps: 37.00 qps: 4589.15 (r/w/o: 630.02/3959.13/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 32s ] thds: 100 tps: 63.00 qps: 5176.99 (r/w/o: 1370.00/3806.99/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 33s ] thds: 100 tps: 15.00 qps: 3871.96 (r/w/o: 254.00/3617.96/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 34s ] thds: 100 tps: 85.00 qps: 5464.99 (r/w/o: 1746.00/3718.99/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 35s ] thds: 100 tps: 8.00 qps: 3899.06 (r/w/o: 130.00/3769.06/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 36s ] thds: 100 tps: 92.00 qps: 5490.97 (r/w/o: 1860.99/3629.98/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 37s ] thds: 100 tps: 2.00 qps: 3834.03 (r/w/o: 49.00/3785.03/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 38s ] thds: 100 tps: 96.00 qps: 5676.89 (r/w/o: 1887.96/3788.92/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 39s ] thds: 100 tps: 3.00 qps: 3987.06 (r/w/o: 82.00/3905.06/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 100 tps: 95.00 qps: 5611.97 (r/w/o: 1876.99/3734.98/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 41s ] thds: 100 tps: 4.00 qps: 4075.02 (r/w/o: 113.00/3962.02/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 42s ] thds: 100 tps: 90.00 qps: 5585.96 (r/w/o: 1774.99/3810.97/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 43s ] thds: 100 tps: 12.00 qps: 4708.01 (r/w/o: 236.00/4472.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 44s ] thds: 100 tps: 92.00 qps: 5519.98 (r/w/o: 1854.99/3664.98/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 45s ] thds: 100 tps: 7.00 qps: 4035.03 (r/w/o: 142.00/3893.03/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 46s ] thds: 100 tps: 84.95 qps: 5321.76 (r/w/o: 1611.02/3710.74/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 47s ] thds: 100 tps: 17.01 qps: 5430.29 (r/w/o: 440.27/4990.02/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 48s ] thds: 100 tps: 86.00 qps: 5010.01 (r/w/o: 1707.00/3303.00/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 49s ] thds: 100 tps: 14.00 qps: 5064.99 (r/w/o: 279.00/4785.99/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 50s ] thds: 100 tps: 92.00 qps: 5507.99 (r/w/o: 1829.00/3678.99/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 51s ] thds: 100 tps: 7.00 qps: 4244.02 (r/w/o: 165.00/4079.02/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 52s ] thds: 100 tps: 94.00 qps: 5723.97 (r/w/o: 1799.99/3923.98/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 53s ] thds: 100 tps: 7.00 qps: 4280.02 (r/w/o: 216.00/4064.02/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 54s ] thds: 100 tps: 88.00 qps: 5402.97 (r/w/o: 1734.99/3667.98/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 55s ] thds: 100 tps: 12.00 qps: 4548.03 (r/w/o: 250.00/4298.03/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 56s ] thds: 100 tps: 88.00 qps: 5374.94 (r/w/o: 1741.98/3632.96/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 57s ] thds: 100 tps: 11.99 qps: 4475.49 (r/w/o: 260.85/4214.64/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 58s ] thds: 100 tps: 76.04 qps: 4775.72 (r/w/o: 1488.85/3286.87/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 59s ] thds: 100 tps: 22.00 qps: 4499.01 (r/w/o: 488.00/4011.01/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 100 tps: 71.00 qps: 5273.99 (r/w/o: 1356.00/3918.00/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 61s ] thds: 100 tps: 29.00 qps: 4320.01 (r/w/o: 644.00/3676.01/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 62s ] thds: 100 tps: 51.00 qps: 4626.99 (r/w/o: 946.00/3681.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 63s ] thds: 100 tps: 49.00 qps: 5204.00 (r/w/o: 1054.00/4150.00/0.00) lat (ms,99%): 2320.55 err/s: 0.00 reconn/s: 0.00
+[ 64s ] thds: 100 tps: 40.00 qps: 4095.01 (r/w/o: 718.00/3377.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 65s ] thds: 100 tps: 60.00 qps: 5445.98 (r/w/o: 1282.00/4163.99/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 66s ] thds: 100 tps: 43.00 qps: 4831.98 (r/w/o: 850.00/3981.98/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 67s ] thds: 100 tps: 57.00 qps: 5450.03 (r/w/o: 1150.01/4300.02/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 68s ] thds: 100 tps: 45.00 qps: 4646.01 (r/w/o: 852.00/3794.01/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 69s ] thds: 100 tps: 55.00 qps: 4886.99 (r/w/o: 1148.00/3739.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 70s ] thds: 100 tps: 33.00 qps: 4439.01 (r/w/o: 653.00/3786.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 71s ] thds: 100 tps: 67.00 qps: 5430.00 (r/w/o: 1347.00/4083.00/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 72s ] thds: 100 tps: 34.00 qps: 4522.99 (r/w/o: 670.00/3852.99/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 73s ] thds: 100 tps: 66.00 qps: 5488.98 (r/w/o: 1329.99/4158.98/0.00) lat (ms,99%): 2120.76 err/s: 0.00 reconn/s: 0.00
+[ 74s ] thds: 100 tps: 41.00 qps: 5084.02 (r/w/o: 791.00/4293.01/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 75s ] thds: 100 tps: 59.00 qps: 5023.02 (r/w/o: 1209.00/3814.01/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 76s ] thds: 100 tps: 35.00 qps: 4448.99 (r/w/o: 652.00/3796.99/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 77s ] thds: 100 tps: 65.00 qps: 5645.01 (r/w/o: 1348.00/4297.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 78s ] thds: 100 tps: 47.00 qps: 5328.99 (r/w/o: 938.00/4390.99/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 79s ] thds: 100 tps: 53.00 qps: 4663.97 (r/w/o: 1061.99/3601.98/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+[ 80s ] thds: 100 tps: 47.00 qps: 4903.04 (r/w/o: 806.01/4097.04/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 81s ] thds: 100 tps: 53.00 qps: 5158.02 (r/w/o: 1194.00/3964.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 82s ] thds: 100 tps: 37.00 qps: 4569.98 (r/w/o: 729.00/3840.98/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 83s ] thds: 100 tps: 63.00 qps: 5234.01 (r/w/o: 1271.00/3963.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 84s ] thds: 100 tps: 37.00 qps: 4608.00 (r/w/o: 684.00/3924.00/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 85s ] thds: 100 tps: 63.00 qps: 5225.00 (r/w/o: 1303.00/3922.00/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 86s ] thds: 100 tps: 36.00 qps: 4738.02 (r/w/o: 717.00/4021.02/0.00) lat (ms,99%): 2159.29 err/s: 0.00 reconn/s: 0.00
+[ 87s ] thds: 100 tps: 64.00 qps: 5315.92 (r/w/o: 1295.98/4019.94/0.00) lat (ms,99%): 2082.91 err/s: 0.00 reconn/s: 0.00
+[ 88s ] thds: 100 tps: 26.00 qps: 4024.06 (r/w/o: 520.01/3504.05/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 89s ] thds: 100 tps: 72.00 qps: 4995.98 (r/w/o: 1439.99/3555.99/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 90s ] thds: 100 tps: 2.00 qps: 1257.00 (r/w/o: 40.00/1217.00/0.00) lat (ms,99%): 3040.14 err/s: 0.00 reconn/s: 0.00
+[ 91s ] thds: 100 tps: 49.00 qps: 5300.98 (r/w/o: 930.00/4370.98/0.00) lat (ms,99%): 2985.89 err/s: 0.00 reconn/s: 0.00
+[ 92s ] thds: 100 tps: 50.00 qps: 5029.00 (r/w/o: 1050.00/3979.00/0.00) lat (ms,99%): 2932.60 err/s: 0.00 reconn/s: 0.00
+[ 93s ] thds: 100 tps: 44.00 qps: 4454.01 (r/w/o: 817.00/3637.01/0.00) lat (ms,99%): 3911.79 err/s: 0.00 reconn/s: 0.00
+[ 94s ] thds: 100 tps: 56.00 qps: 4915.99 (r/w/o: 1183.00/3732.99/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 95s ] thds: 100 tps: 40.00 qps: 4774.99 (r/w/o: 761.00/4013.99/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 96s ] thds: 100 tps: 60.00 qps: 5168.01 (r/w/o: 1239.00/3929.01/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 97s ] thds: 100 tps: 37.00 qps: 4395.00 (r/w/o: 695.00/3700.00/0.00) lat (ms,99%): 2279.14 err/s: 0.00 reconn/s: 0.00
+[ 98s ] thds: 100 tps: 62.00 qps: 5059.01 (r/w/o: 1285.00/3774.01/0.00) lat (ms,99%): 2238.47 err/s: 0.00 reconn/s: 0.00
+[ 99s ] thds: 100 tps: 38.00 qps: 5136.99 (r/w/o: 736.00/4400.99/0.00) lat (ms,99%): 2198.52 err/s: 0.00 reconn/s: 0.00
+[ 100s ] thds: 100 tps: 63.00 qps: 5142.97 (r/w/o: 1283.99/3858.98/0.00) lat (ms,99%): 2045.74 err/s: 0.00 reconn/s: 0.00
+[ 101s ] thds: 100 tps: 83.95 qps: 4767.05 (r/w/o: 0.00/4767.05/0.00) lat (ms,99%): 1973.38 err/s: 0.00 reconn/s: 0.00
+SQL statistics:
+    queries performed:
+        read:                            98000
+        write:                           392000
+        other:                           0
+        total:                           490000
+    transactions:                        4900   (48.46 per sec.)
+    queries:                             490000 (4846.27 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    total time:                          101.1074s
+    total number of events:              4900
+
+Latency (ms):
+         min:                                 1184.70
+         avg:                                 2056.48
+         max:                                 4093.89
+         99th percentile:                     3911.79
+         sum:                             10076761.79
+
+Threads fairness:
+    events (avg/stddev):           49.0000/0.14
+    execution time (avg/stddev):   100.7676/0.23
+
