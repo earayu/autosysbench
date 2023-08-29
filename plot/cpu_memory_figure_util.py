@@ -83,6 +83,6 @@ def Draw(figureTitle, configs, path):
     )
 
     # display
-    # fig.show()
+    fig.show()
     pio.write_image(fig, os.path.join(path, 'cpu_memory.png'), scale=2)
 

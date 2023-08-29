@@ -51,10 +51,10 @@ def draw_figure_from_aggregation_result(path, figureTitle):
         # store the filename and its full path in the dictionary
         file_dict['fileName'] = os.path.join(path, filename)
         if 'mysql' in filename:
-            file_dict['barName'] = 'MySQL'
+            file_dict['barName'] = 'MySQL QPS'
             file_dict['lineName'] = 'MySQL Latency'
         elif 'vtgate' in filename:
-            file_dict['barName'] = 'WeSQL-Scale'
+            file_dict['barName'] = 'WeSQL-Scale QPS'
             file_dict['lineName'] = 'WeSQL-Scale Latency'
         else:
             pass

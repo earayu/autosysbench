@@ -99,11 +99,11 @@ def draw_figure_from_aggregation_result(path, figureTitle):
             # store the filename and its full path in the dictionary
         file_dict['fileName'] = os.path.join(path, filename)
         if 'mysql' in filename:
-            file_dict['barName'] = 'MySQL CPU USAGE'
-            file_dict['lineName'] = 'MySQL MEMORY USAGE'
+            file_dict['barName'] = 'MySQL CPU'
+            file_dict['lineName'] = 'MySQL MEMORY'
         elif 'vtgate' in filename:
-            file_dict['barName'] = 'WeSQL-Scale CPU USAGE'
-            file_dict['lineName'] = 'WeSQL-Scale MEMORY USAGE'
+            file_dict['barName'] = 'WeSQL-Scale CPU'
+            file_dict['lineName'] = 'WeSQL-Scale MEMORY'
         else:
             pass
         config_list.append(file_dict)

@@ -18,8 +18,8 @@ def draw_cpu_memory(date, test_name, title):
     draw_cpu_memory_figure.draw_figure_from_aggregation_result(data_path, title)
 
 
-draw_qps_latency('article', 'read_write_split_disable', "WeSQL-Scale vs MySQL (With Read-Write-Split Enabled)")
-draw_cpu_memory('article', 'read_write_split_disable', 'WeSQL-Scale vs MySQL (With Read-Write-Split Enabled)')
+draw_qps_latency('article', 'read_write_split_disable', "WeSQL-Scale vs MySQL (With Read-Write-Split Disabled)")
+draw_cpu_memory('article', 'read_write_split_disable', 'WeSQL-Scale vs MySQL (With Read-Write-Split Disabled)')
 
 draw_qps_latency('article', 'read_write_split_enable', 'WeSQL-Scale vs MySQL (With Read-Write-Split Enabled)')
 draw_cpu_memory('article', 'read_write_split_enable', 'WeSQL-Scale vs MySQL (With Read-Write-Split Enabled)')

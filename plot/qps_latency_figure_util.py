@@ -73,6 +73,6 @@ def Draw(figureTitle, configs, path):
         AddQpsLatencyTrace(fig, df, barName, lineName)
 
     # display
-    # fig.show()
+    fig.show()
     pio.write_image(fig, os.path.join(path, 'qps_latency.png'), scale=2)
 
